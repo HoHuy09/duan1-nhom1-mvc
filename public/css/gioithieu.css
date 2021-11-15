@@ -1,0 +1,62 @@
+.container{
+    width: auto;
+    margin-left: 50px;
+}
+@font-face {
+    font-family: font;
+    src: url('../fontawesome-free-5.13.0-web/fontawesome-free-5.13.0-web/webfonts/UVNGiaDinhHep_R.TTF');
+}
+@font-face {
+    font-family: font1;
+    src: url('../fontawesome-free-5.13.0-web/fontawesome-free-5.13.0-web/webfonts/UVNHuongQue_R.TTF');
+}
+.gt h2{
+    font-family: font;
+    font-size: 45px;
+    text-align: center;
+    margin-top: 30px;
+}
+.banner{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.banner img{
+    margin-left: 150px;
+    width: 1200px;
+    height: 700px;
+}
+.top{
+    margin: 15px;
+}
+.a h4{
+    font-family: font1;
+    font-size: 20px;
+}
+.nd h3{
+    font-family: font;
+    font-size: 30px;
+}
+.nd h4{
+    font-family: font1;
+    font-size: 20px;
+    margin: 15px;
+}
+.nd p{
+    font-size: 20px;
+    margin: 15px;
+    font-weight: bolder;
+}
+.bottom h3{
+    font-family: font;
+    font-size: 30px;
+}
+.bottom h4{
+    font-family: font1;
+    font-size: 20px;
+    margin: 15px;
+}
+.bottom p{
+    font-size: 20px;
+    margin: 15px;
+    font-weight: bolder;
+}
