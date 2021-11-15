@@ -25,14 +25,14 @@
                             <td><?= $item['id_user'] ?></td>
                             <td><?= $item['account'] ?></td>
                             <td><?= $item['name'] ?></td>
-                            <td><?= $item['email'] ?>%</td>
+                            <td><?= $item['email'] ?></td>
                             <td><img src="<?= PUBLIC_PATH . $item['avatar'] ?>" width="50"></td>
                             <td class="td-name">
-                                <?php if ($user['roles'] == 1) {
+                                <?php if ($item['roles'] == 1) {
                                     echo "Admin";
-                                } elseif ($user['roles'] == 0) {
+                                } elseif ($item['roles'] == 0) {
                                     echo "Khách hàng";
-                                } elseif ($user['roles'] == 2) {
+                                } elseif ($item['roles'] == 2) {
                                     echo "Seller";
                                 } ?>
                             </td>

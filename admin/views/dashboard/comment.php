@@ -18,12 +18,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($listSlide as $item) : ?>
+                    <?php foreach ($listCmt as $item) : ?>
                         <tr>
-                            <td><?= $item['id_slide'] ?></td>
-                            <td><img src="<?= PUBLIC_PATH . $item['anh_slide'] ?>" width="250"></td>
-                            <td><?= $item['ten_slide'] ?></td>
-                            <td><?= $item['link_slide'] ?></td>
+                            <td><?= $item['id_bl'] ?></td>
+                            <td><?= $item['ten_sp'] ?></td>
+                            <td><?= $item['sl'] ?></td>
+                            <td><?= $item['thoi_gian'] ?></td>
                             <td class="td-function">
                                 <a href="#" class="link-function btn-repair">Sửa</a>
                                 <a href="#" class="link-function btn-delete" name="btnDelete">Xóa</a>

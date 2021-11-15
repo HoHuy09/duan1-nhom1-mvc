@@ -45,6 +45,9 @@ function User()
 }
 function Comment()
 {
-
-    admin_render('dashboard/user.php', compact('listUser'));
+    $sql = "SELECT sp.ten_sp, bl.id_bl,bl.thoi_gian, COUNT(bl.id_sp) as sl, bl.id_sp 
+    FROM binh_luan AS bl INNER JOIN san_pham AS sp ON bl.id_sp = sp.id_sp 
+    GROUP BY sp.ten_sp ORDER BY bl.id_bl DESC";
+    $listCmt = select_all_follow_order($sql);
+    admin_render('dashboard/comment.php', compact('listCmt'));
 }
