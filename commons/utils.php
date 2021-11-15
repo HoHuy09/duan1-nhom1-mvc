@@ -1,8 +1,8 @@
 <?php
 
-const BASE_URL = "http://localhost/duan1-nhom1-php2/";
+const BASE_URL = "http://localhost/duan1-nhom1-mvc/";
 const ADMIN_ASSET = BASE_URL . 'public/admin-assets/';
-const PUBLIC_PATH = 'http://localhost/duan1-nhom1-php2/public/';
+const PUBLIC_PATH = 'http://localhost/duan1-nhom1-mvc/public/';
 
 
 function dd(){
