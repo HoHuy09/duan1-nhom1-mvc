@@ -1,16 +1,18 @@
 <?php
-function get_connect(){
+function get_connect()
+{
     $connect = new PDO("mysql:host=127.0.0.1;dbname=shoppings;charset=utf8", "root", "");
     return $connect;
 }
 
 
-function executeQuery($sql, $getAll = false){
+function executeQuery($sql, $getAll = false)
+{
 
     $connect = get_connect();
     $stmt = $connect->prepare($sql);
     $stmt->execute();
-    if($getAll){
+    if ($getAll) {
         return $stmt->fetchAll();
     }
 
@@ -43,17 +45,27 @@ function select_all_follow_order($sql)
         die('Lỗi truy vấn' . $e->getMessage());
     }
 }
-function select_all_product($sql){
+function select_all_product($sql)
+{
     try {
         $conn = get_connect();
         $stmt = $conn->prepare($sql);
         $stmt->execute();
         $stmt->setFetchMode(PDO::FETCH_ASSOC);
         return $list = $stmt->fetchAll();
-
     } catch (PDOException $e) {
         die('loi' . $e->getMessage());
     }
 }
-
-?>
+function select_danh_muc()
+{
+    try {
+        $conn = get_connect();
+        $stmt = $conn->prepare("SELECT * FROM danh_muc ORDER BY id_dm DESC");
+        $stmt->execute();
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        return $listCate = $stmt->fetchAll();
+    } catch (PDOException $e) {
+        die('Loi truy van CSDL' . $e->getMessage());
+    }
+}
