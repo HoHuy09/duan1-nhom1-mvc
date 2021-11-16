@@ -75,14 +75,17 @@
                                                 <li class="header__user-item">
                                                     <i class="fas fa-cog user-item-icon"></i>
                                                     <a href="<?php
-                                                                if ($_SESSION['user']['roles'] == 1) {
-                                                                    echo 'http://localhost/duan1-nhom1/assignment/admin/frames_func.php';
-                                                                } elseif ($_SESSION['user']['roles'] == 2) {
-                                                                    echo 'http://localhost/duan1-nhom1/assignment/seller/frames_func.php';
-                                                                } elseif ($_SESSION['user']['roles'] == 0) {
-                                                                    echo 'http://localhost/duan1-nhom1/assignment/';
-                                                                }
-                                                                ?>" class="header__user-link">Quản lý</a><span style="color: red;">
+                                                                // if ($_SESSION['user']['roles'] == 1) {
+                                                                //     echo 'http://localhost/duan1-nhom1/assignment/admin/frames_func.php';
+                                                                // } elseif ($_SESSION['user']['roles'] == 2) {
+                                                                //     echo 'http://localhost/duan1-nhom1/assignment/seller/frames_func.php';
+                                                                // } elseif ($_SESSION['user']['roles'] == 0) {
+                                                                //     echo 'http://localhost/duan1-nhom1/assignment/';
+                                                                // }
+                                                                echo BASE_URL.'cp-admin';
+                                                                ?>
+                                                                
+                                                                " class="header__user-link">Quản lý</a><span style="color: red;">
                                                         <?php
                                                         if ($_SESSION['user']['roles'] == 0) {
                                                             echo 'No';
