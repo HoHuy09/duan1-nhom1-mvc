@@ -22,6 +22,23 @@ switch ($url) {
         require_once './admin/business/dashboard.php';
         Sanpham();
         break;
+    case 'cp-admin/san-pham/add':
+        require_once './admin/business/dashboard.php';
+        addsanpham();
+        break;
+    case 'cp-admin/san-pham/edit':
+        require_once './admin/business/dashboard.php';
+        $id = intval($_GET['id']);
+        $id_dm = intval($_GET['id_dm']);
+        $th = intval($_GET['th']);
+        editsanpham($id,$id_dm,$th);
+        break;
+    case 'cp-admin/san-pham/delete':
+        require_once './admin/business/dashboard.php';
+        $id = intval($_GET['id']);
+        
+        deletesanpham($id);
+        break;
     case 'cp-admin/danh-muc':
         require_once './admin/business/dashboard.php';
         Danhmuc();
