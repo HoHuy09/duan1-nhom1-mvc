@@ -4,7 +4,8 @@ require_once './dao/system_dao.php';
 
 function dashboard_index()
 {
-    $totalProduct = rand(100, 999);
+    $sql = 'SELECT count(id_sp) FROM san_pham';
+    $totalProduct = count_all($sql);
     $totalProfit = rand(1000, 500000);
     $totalCustomer = rand(50, 20000);
     admin_render(

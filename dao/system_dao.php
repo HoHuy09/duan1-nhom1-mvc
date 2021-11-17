@@ -133,3 +133,14 @@ function edit_product($danh_muc, $name, $price, $brand, $sale, $desc, $date, $st
     $stmt = $conn->prepare($sql);
     $stmt->execute();
 }
+function count_all($sql)
+{
+    try {
+        $conn = get_connect();
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchColumn();
+    } catch (PDOException $e) {
+        die('Lỗi truy vấn' . $e->getMessage());
+    }
+}
