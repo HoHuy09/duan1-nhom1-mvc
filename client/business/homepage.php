@@ -28,7 +28,10 @@ function about(){
     client_render('homepage/gioithieu.php',compact('listRecord','thuonghieu'));
 }
 function signin(){
-    
+    $sql = "SELECT * FROM danh_muc";
+    $listRecord = select_page($sql);
+    $sql = "SELECT * FROM thuong_hieu";
+    $thuonghieu = select_page($sql);
     $msg = [];
     if(isset($_REQUEST) && isset($_POST['btn-create'])){
        $acc = $_REQUEST['acc'];
@@ -54,7 +57,7 @@ function signin(){
             header('location: '.BASE_URL.'signup');
        }
     }
-    client_render('homepage/signin.php');
+    client_render('homepage/signin.php',compact('listRecord','thuonghieu'));
 }
 function signup(){
     
