@@ -50,14 +50,16 @@ function Comment()
 {
     admin_render('dashboard/user.php', compact('listUser'));
 }
+
+//--//
 function addsanpham()
 {
-    
+
     $listCate = select_danh_muc();
     $sql = 'SELECT id_th, ten_th FROM thuong_hieu';
     $listBrand = select_thuong_hieu($sql);
     $msg = [];
-    if(isset($_POST['btnSend'])){
+    if (isset($_POST['btnSend'])) {
         $danh_muc = $_POST['danh_muc'];
         $name = $_POST['name'];
         $price = $_POST['price'];
@@ -66,27 +68,27 @@ function addsanpham()
         $desc = $_POST['desc'];
         $date = $_POST['date'];
         $status = $_POST['status'];
-        
+
 
         if (empty($msg)) {
-           
+
             add_product($danh_muc, $name,  $price, $brand, $sale, $desc, $date, $status);
-            header('Location:'.BASE_URL.'cp-admin/san-pham');
+            header('Location:' . BASE_URL . 'cp-admin/san-pham');
         }
     }
-    admin_render('dashboard/sanpham/add.php', compact('listCate','listBrand'));
+    admin_render('dashboard/sanpham/add.php', compact('listCate', 'listBrand'));
 }
 function deletesanpham($id)
 {
     $id = intval($_GET['id']);
     $sql = "SELECT id_sp FROM san_pham WHERE id_sp = $id";
-    $field = select_product_detail_follow_id($sql, $id);   
+    $field = select_product_detail_follow_id($sql, $id);
 
     $sql_delete = "DELETE FROM san_pham WHERE id_sp = $id";
     delete($sql_delete, $id);
-    header('Location:'.BASE_URL.'cp-admin/san-pham');
+    header('Location:' . BASE_URL . 'cp-admin/san-pham');
 }
-function editsanpham($id,$id_dm,$th)
+function editsanpham($id, $id_dm, $th)
 {
     $listCate = select_danh_muc();
     $sql = 'SELECT id_th, ten_th FROM thuong_hieu';
@@ -96,9 +98,9 @@ function editsanpham($id,$id_dm,$th)
     $th = intval($_GET['th']);
     $sql = "SELECT * FROM san_pham WHERE id_sp = $id && id_dm = $id_dm && id_th = $th";
     $field = select_product_follow_id($sql, $id, $id_dm, $th);
-    
+
     $msg = [];
-    if(isset($_POST['btnSend'])){
+    if (isset($_POST['btnSend'])) {
         $danh_muc = $_POST['danh_muc'];
         $name = $_POST['name'];
         $price = $_POST['price'];
@@ -107,15 +109,18 @@ function editsanpham($id,$id_dm,$th)
         $desc = $_POST['desc'];
         $date = $_POST['date'];
         $status = $_POST['status'];
-        
+
 
         if (empty($msg)) {
-           
+
             edit_product($danh_muc, $name, $price, $brand, $sale, $desc, $date, $status, $id);
-            header('Location:'.BASE_URL.'cp-admin/san-pham');
+            header('Location:' . BASE_URL . 'cp-admin/san-pham');
         }
     }
 
-    admin_render('dashboard/sanpham/edit.php',compact('listCate','listBrand','field'));
+    admin_render('dashboard/sanpham/edit.php', compact('listCate', 'listBrand', 'field'));
 }
 
+function addcategory()
+{
+}
