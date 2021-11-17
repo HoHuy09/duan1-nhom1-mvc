@@ -10,6 +10,12 @@ switch ($url) {
     case 'gioi-thieu':
         require_once './client/business/homepage.php';
         about();
+    case 'signin':
+        require_once './client/business/homepage.php';
+        signin();
+    case 'signup':
+        require_once './client/business/homepage.php';
+        signup();
     case 'danh-muc':
         require_once './client/business/category.php';
         list_product();

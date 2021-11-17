@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="<?= PUBLIC_PATH ?>css/products.css"/>
     <link rel="stylesheet" href="<?= PUBLIC_PATH ?>css/detail.css"/>
     <link rel="stylesheet" href="<?= PUBLIC_PATH ?>css/gioithieu.css">
+    
 </head>
 <body>
 <div class="wrapper">
@@ -35,9 +36,9 @@
                         <div class="header__info">
                             <span class="header__info-box">
                                 <i class="fas fa-user-circle icon-user"></i>
-                                <button class="header__info-box-link create">Đăng Kí</button>
+                                <a href="<?= BASE_URL.'signin'?>" class="header__info-box-link create">Đăng Kí</a>
                                 <span class="header__info-box-link-border">/</span>
-                                <button class="header__info-box-link login">Đăng nhập</button>
+                                <a href="<?= BASE_URL.'signup'?>" class="header__info-box-link login">Đăng nhập</a>
                             </span>
                         </div>
                     </section>
@@ -82,7 +83,7 @@
                                                                 // } elseif ($_SESSION['user']['roles'] == 0) {
                                                                 //     echo 'http://localhost/duan1-nhom1/assignment/';
                                                                 // }
-                                                                echo BASE_URL.'cp-admin';
+                                                                echo BASE_URL.'cp-admin'
                                                                 ?>
                                                                 
                                                                 " class="header__user-link">Quản lý</a><span style="color: red;">

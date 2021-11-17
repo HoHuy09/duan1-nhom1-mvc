@@ -27,6 +27,39 @@ function about(){
     $thuonghieu = select_page($sql);
     client_render('homepage/gioithieu.php',compact('listRecord','thuonghieu'));
 }
+function signin(){
+    
+    $msg = [];
+    if(isset($_REQUEST) && isset($_POST['btn-create'])){
+       $acc = $_REQUEST['acc'];
+       
+       $pwd = $_REQUEST['pwd'];
+       $retype_pwd = $_REQUEST['retype_pwd'];
+       $name = $_REQUEST['name'];
+       $email = $_REQUEST['email'];
+       $roles = 0;
+    //    $file = $_FILES['file']['name'];
+    
+       if(empty($acc && $pwd && $retype_pwd && $name && $email )){
+           $msg[] = '<script> alert("Bạn chưa điền đầy đủ thông tin") </script>';
+        }
+        // $temp = $_FILES['file']['tmp_name'];
+        // move_uploaded_file($temp, 'img/' . $file);
+       if($pwd !== $retype_pwd){
+        $msg[] = '<script> alert("Mật khẩu không khớp") </script>';
+       }
+       if(empty($msg)){
+           
+            user_create_acc($acc, $pwd, $name, $email, $roles);
+            header('location: '.BASE_URL.'signup');
+       }
+    }
+    client_render('homepage/signin.php');
+}
+function signup(){
+    
+    client_render('homepage/signup.php');
+}
 
 
 
