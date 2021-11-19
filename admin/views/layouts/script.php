@@ -17,6 +17,7 @@
 <script src="<?= ADMIN_ASSET ?>plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
 <!-- jQuery Knob Chart -->
 <script src="<?= ADMIN_ASSET ?>plugins/jquery-knob/jquery.knob.min.js"></script>
+<script src="<?= ADMIN_ASSET ?>plugins/sweetalert2/sweetalert2.min.js"></script>
 <!-- daterangepicker -->
 <script src="<?= ADMIN_ASSET ?>plugins/moment/moment.min.js"></script>
 <script src="<?= ADMIN_ASSET ?>plugins/daterangepicker/daterangepicker.js"></script>

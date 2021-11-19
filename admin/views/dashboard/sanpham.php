@@ -26,7 +26,8 @@
                         <th>Sale</th>
                         <th>Bảo hành</th>
                         <th>Trạng thái</th>
-                        <th><a href="<?= BASE_URL . 'cp-admin/san-pham/add' ?>" class="content__box-add">Thêm sản phẩm</a></th>
+                        
+                        <th><a href="<?= BASE_URL . 'cp-admin/san-pham/add' ?>" class="btn btn-sm btn-success">Thêm sản phẩm</a></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -49,8 +50,10 @@
                                 ?>
                             </td>
                             <td class="td-function">
-                                <a href="<?= BASE_URL . 'cp-admin/san-pham/edit?id='.$item['id_sp'].'&&id_dm='.$item['id_dm'].'&&th='.$item['id_th'] ?>" class="link-function btn-repair">Sửa</a>
-                                <a href="<?= BASE_URL . 'cp-admin/san-pham/delete?id='.$item['id_sp'] ?>" class="link-function btn-delete" name="btnDelete">Xóa</a>
+                                <a href="<?= BASE_URL . 'cp-admin/san-pham/edit?id='.$item['id_sp'].'&&id_dm='.$item['id_dm'].'&&th='.$item['id_th'] ?>" class="btn btn-sm btn-info">Sửa</a>
+                                
+                                <a href="<?= BASE_URL . 'cp-admin/san-pham/delete?id='.$item['id_sp']?>"   class="btn btn-sm btn-danger" name="btnDelete">Xóa</a>
+                                
                             </td>
                         </tr>
                     <?php endforeach; ?>
