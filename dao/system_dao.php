@@ -157,3 +157,11 @@ function user_create_acc($acc, $pwd, $name, $email, $roles)
         die('lỗi kết nối' . $e->getMessage());
     }
 }
+function user_login($acc)
+{
+    $conn = get_connect();
+    $stmt = $conn->prepare("SELECT * FROM user WHERE account = '$acc'");
+    $stmt->execute();
+    $stmt->setFetchMode(PDO::FETCH_ASSOC);
+    return $userInfo = $stmt->fetch();
+}

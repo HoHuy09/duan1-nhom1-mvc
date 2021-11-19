@@ -15,7 +15,7 @@
                     <input type="password" class="content__form-input" placeholder="Mật khẩu" name="pwd">
     </div>
     <br><br><br><br><br>
-    <button type="submit" class="content__form-btn-create" name="btn-create">Đăng ký</button>
+    <button type="submit" class="content__form-btn-create" name="btn-login">Đăng Nhập</button>
     
 </form>
 <br><br><br><br>

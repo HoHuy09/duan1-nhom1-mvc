@@ -64,6 +64,29 @@ function signup(){
     $listRecord = select_page($sql);
     $sql = "SELECT * FROM thuong_hieu";
     $thuonghieu = select_page($sql);
+    
+    if(isset($_REQUEST) && isset($_POST['btn-login'])){
+        $acc = $_REQUEST['acc'];
+        $pwd = $_REQUEST['pwd'];
+        try{
+            $userInfo = user_login($acc);
+            
+            if(empty($userInfo)){
+                echo '<script>alert("Tài khoản không tồn tại")</script>';
+            }else{
+                if(password_verify($pwd, $userInfo['passwd'])){
+                    $_SESSION['user'] = $userInfo;
+                    echo '<script>alert("Đăng nhập thành công")</script>';
+                    header('Location:'.BASE_URL);
+                }else{
+                    echo '<script>alert("Mật khẩu không chính xác")</script>';
+                }
+            }
+        }catch(PDOException $e){
+            die("Lỗi kết nối" .$e->getMessage());
+        }
+        
+    }
     client_render('homepage/signup.php',compact('listRecord','thuonghieu'));
 }
 

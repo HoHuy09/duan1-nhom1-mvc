@@ -1,5 +1,6 @@
 <?php
 session_start();
+$session = isset($_SESSION['user']) ? $_SESSION['user'] : "";
 $url = isset($_GET['url']) ? $_GET['url'] : "/";
 require_once './commons/utils.php';
 switch ($url) {
