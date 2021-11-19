@@ -15,11 +15,20 @@ function dashboard_index()
 }
 function Sanpham()
 {
-    $sql = 'SELECT sp.id_sp, sp.id_dm, sp.id_th, sp.ten_sp, sp.anh_sp, sp.gia_sp, sp.giam_gia, 
+    $keyword = isset($_GET['keyword']) ? $_GET['keyword'] : "";
+    if($keyword != ''){
+        $sql = "SELECT * FROM san_pham INNER JOIN thuong_hieu ON san_pham.id_th = thuong_hieu.id_th WHERE 
+        ten_sp like '%$keyword%'
+        OR gia_sp LIKE '%$keyword%' 
+        OR mo_ta LIKE '%$keyword%'
+        ";
+        $list = select_page($sql);
+    }else{
+    $sql = "SELECT sp.id_sp, sp.id_dm, sp.id_th, sp.ten_sp, sp.anh_sp, sp.gia_sp, sp.giam_gia, 
     sp.bao_hanh, sp.trang_thai, th.ten_th FROM san_pham AS sp 
-    INNER JOIN thuong_hieu AS th ON sp.id_th = th.id_th ORDER BY sp.id_sp DESC';
-    $list = select_all_product($sql);
-    admin_render('dashboard/sanpham.php', compact('list'));
+    INNER JOIN thuong_hieu AS th ON sp.id_th = th.id_th ORDER BY sp.id_sp DESC ";
+    $list = select_all_product($sql);}
+    admin_render('dashboard/sanpham.php', compact('list','keyword'));
 }
 function Danhmuc()
 {

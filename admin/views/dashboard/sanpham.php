@@ -3,7 +3,15 @@
         <div class="card-header">
             <h3 class="card-title">Sản Phẩm</h3>
             <br>
-            <a href="<?= BASE_URL . 'cp-admin/san-pham/add' ?>" class="content__box-add">Thêm sản phẩm</a>
+            <form action="" method="get">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group">
+                              <input type="text" name="keyword" value="<?= $keyword ?>" class="form-control" placeholder="Tìm kiếm..." aria-describedby="helpId">
+                            </div>
+                        </div>
+                    </div>
+                </form>
         </div>
         <!-- /.card-header -->
         <div class="card-body">
@@ -18,7 +26,7 @@
                         <th>Sale</th>
                         <th>Bảo hành</th>
                         <th>Trạng thái</th>
-                        <th>Chức năng</th>
+                        <th><a href="<?= BASE_URL . 'cp-admin/san-pham/add' ?>" class="content__box-add">Thêm sản phẩm</a></th>
                     </tr>
                 </thead>
                 <tbody>
