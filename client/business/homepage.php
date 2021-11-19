@@ -60,8 +60,11 @@ function signin(){
     client_render('homepage/signin.php',compact('listRecord','thuonghieu'));
 }
 function signup(){
-    
-    client_render('homepage/signup.php');
+    $sql = "SELECT * FROM danh_muc";
+    $listRecord = select_page($sql);
+    $sql = "SELECT * FROM thuong_hieu";
+    $thuonghieu = select_page($sql);
+    client_render('homepage/signup.php',compact('listRecord','thuonghieu'));
 }
 
 
