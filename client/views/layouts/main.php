@@ -127,7 +127,7 @@
                     <nav class="l-12 col header__nav">
                         <ul class="header__nav-list">
                             <li class="header__nav-item">
-                                <a href="index.php" class="header__nav-link">Trang chủ</a>
+                                <a href="<?=BASE_URL?>" class="header__nav-link">Trang chủ</a>
                             </li>
                             <li class="header__nav-item">
                                 <a href="products.php" class="header__nav-link">Sản Phẩm</a>

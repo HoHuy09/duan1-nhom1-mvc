@@ -21,6 +21,10 @@ switch ($url) {
         require_once './client/business/category.php';
         list_product();
         break;
+    case 'chi-tiet/':
+        require_once './client/business/homepage.php';
+        detail();
+        break;
     case 'cp-admin':
         require_once './admin/business/dashboard.php';
         dashboard_index();
@@ -43,7 +47,6 @@ switch ($url) {
     case 'cp-admin/san-pham/delete':
         require_once './admin/business/dashboard.php';
         $id = intval($_GET['id']);
-        
         deletesanpham($id);
         break;
     case 'cp-admin/danh-muc':
