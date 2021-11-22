@@ -43,7 +43,7 @@
                 
                 <section class="l-2 col">
                     <div class="content__product-sale">
-                        <a href="<?= BASE_URL.'chi-tiet/?id='.$rowSale['id_sp']?>" class="content__product-sale-link">
+                        <a href="detail.php?id=<?= $rowSale['id_sp'] ?>" class="content__product-sale-link">
                             <div class="content__product-sale-box">
                                 <img src="<?= PUBLIC_PATH?><?php echo ltrim($rowSale['anh_sp'], ' ') ?>" alt=""
                                      class="content__product-sale-img">
@@ -77,7 +77,7 @@
             foreach ($luotXem as $row) : ?>
                 <section class="l-2 col content__product-general">
                     <div class="content__product-sale">
-                        <a href="<?= BASE_URL.'chi-tiet/?id='.$row['id_sp'] ?>" class="content__product-sale-link row__general-product">
+                        <a href="detail.php?id=<?= $row['id_sp'] ?>" class="content__product-sale-link row__general-product">
                             <div class="content__product-sale-box">
                                 <img src="<?= PUBLIC_PATH?><?php echo ltrim($row['anh_sp'], ' ') ?>" alt=""
                                      class="content__product-sale-img">
@@ -101,7 +101,7 @@
             foreach ($sanPhamMoi as $row) : ?>
                 <section class="l-2 col content__product-general">
                     <div class="content__product-sale">
-                        <a href=" <?= BASE_URL.'chi-tiet/?id='.$row['id_sp'] ?> " class="content__product-sale-link row__general-product">
+                        <a href="detail.php?id=<?= $row['id_sp'] ?>" class="content__product-sale-link row__general-product">
                             <div class="content__product-sale-box">
                                 <img src="<?= PUBLIC_PATH?><?php echo ltrim($row['anh_sp'], ' ') ?>" alt=""
                                      class="content__product-sale-img">

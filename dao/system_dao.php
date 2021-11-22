@@ -144,24 +144,3 @@ function count_all($sql)
         die('Lỗi truy vấn' . $e->getMessage());
     }
 }
-function user_create_acc($acc, $pwd, $name, $email, $roles)
-{
-    try {
-        $conn = get_connect();
-        $pwd = password_hash($pwd, PASSWORD_DEFAULT);
-        $stmt = $conn->prepare("INSERT INTO user (account, passwd, name, email,roles)
-            VALUES ('$acc', '$pwd', '$name', '$email','$roles')");
-        $stmt->execute();
-        echo '<script>alert("Đăng kí tài khoản thành công")</script>';
-    } catch (PDOException $e) {
-        die('lỗi kết nối' . $e->getMessage());
-    }
-}
-function user_login($acc)
-{
-    $conn = get_connect();
-    $stmt = $conn->prepare("SELECT * FROM user WHERE account = '$acc'");
-    $stmt->execute();
-    $stmt->setFetchMode(PDO::FETCH_ASSOC);
-    return $userInfo = $stmt->fetch();
-}

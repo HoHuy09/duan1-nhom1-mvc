@@ -3,15 +3,7 @@
         <div class="card-header">
             <h3 class="card-title">Sản Phẩm</h3>
             <br>
-            <form action="" method="get">
-                    <div class="row">
-                        <div class="col-6">
-                            <div class="form-group">
-                              <input type="text" name="keyword" value="<?= $keyword ?>" class="form-control" placeholder="Tìm kiếm..." aria-describedby="helpId">
-                            </div>
-                        </div>
-                    </div>
-                </form>
+            <a href="<?= BASE_URL . 'cp-admin/san-pham/add' ?>" class="content__box-add">Thêm sản phẩm</a>
         </div>
         <!-- /.card-header -->
         <div class="card-body">
@@ -26,8 +18,7 @@
                         <th>Sale</th>
                         <th>Bảo hành</th>
                         <th>Trạng thái</th>
-                        
-                        <th><a href="<?= BASE_URL . 'cp-admin/san-pham/add' ?>" class="btn btn-sm btn-success">Thêm sản phẩm</a></th>
+                        <th>Chức năng</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -50,10 +41,8 @@
                                 ?>
                             </td>
                             <td class="td-function">
-                                <a href="<?= BASE_URL . 'cp-admin/san-pham/edit?id='.$item['id_sp'].'&&id_dm='.$item['id_dm'].'&&th='.$item['id_th'] ?>" class="btn btn-sm btn-info">Sửa</a>
-                                
-                                <a href="<?= BASE_URL . 'cp-admin/san-pham/delete?id='.$item['id_sp']?>"   class="btn btn-sm btn-danger" name="btnDelete">Xóa</a>
-                                
+                                <a href="<?= BASE_URL . 'cp-admin/san-pham/edit?id='.$item['id_sp'].'&&id_dm='.$item['id_dm'].'&&th='.$item['id_th'] ?>" class="link-function btn-repair">Sửa</a>
+                                <a href="<?= BASE_URL . 'cp-admin/san-pham/delete?id='.$item['id_sp'] ?>" class="link-function btn-delete" name="btnDelete">Xóa</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
