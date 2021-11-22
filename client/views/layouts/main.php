@@ -56,7 +56,7 @@
                             </section>
                             <!-- box search -->
                             <section class="l-7 col">
-                                <form action="products.php" class="header__form">
+                                <form action="<?=BASE_URL.'danh-muc'?>" class="header__form">
                                     <div class="header__form-file">
                                         <input type="text" class="header__form-search" placeholder="Tìm kiếm trên Wshop" name="search-box" value="">
                                         <!-- <input type="hidden" name="search" value="tìm kiếm"> -->
@@ -130,7 +130,7 @@
                                 <a href="<?=BASE_URL?>" class="header__nav-link">Trang chủ</a>
                             </li>
                             <li class="header__nav-item">
-                                <a href="products.php" class="header__nav-link">Sản Phẩm</a>
+                                <a href="<?= BASE_URL.'danh-muc'  ?>" class="header__nav-link">Sản Phẩm</a>
                                 <ul class="menu_cap2_ul">
                                     <?php foreach ($listRecord as $menu) : ?>
                                         <li class="menu_cap2_li">
@@ -142,11 +142,11 @@
                                 </ul>
                             </li>
                             <li class="header__nav-item">
-                                <a href="products.php" class="header__nav-link">Thương hiệu</a>
+                                <a href="<?= BASE_URL.'thuong-hieu'  ?>" class="header__nav-link">Thương hiệu</a>
                                 <ul class="menu_cap2_ul">
                                     <?php foreach ($thuonghieu as $menu) : ?>
                                         <li class="menu_cap2_li">
-                                            <a href="productss.php?th=<?= $menu['id_th'] ?>" class="menu_cap2_a">
+                                            <a href="<?= BASE_URL.'thuong-hieu?th='.$menu['id_th'] ?>" class="menu_cap2_a">
                                                 <?php echo $menu['ten_th'] ?>
                                             </a>
                                         </li>

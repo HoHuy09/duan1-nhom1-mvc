@@ -21,6 +21,10 @@ switch ($url) {
         require_once './client/business/category.php';
         list_product();
         break;
+    case 'thuong-hieu':
+        require_once './client/business/category.php';
+        list_thuonghieu();
+        break;
     case 'chi-tiet/':
         require_once './client/business/homepage.php';
         detail();

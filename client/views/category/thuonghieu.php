@@ -32,7 +32,7 @@
                 <h1 style="font-size: 30px; padding: 10px; background-color: white;"><?php if (empty($id)) {
                         echo "Tất cả sản phẩm";
                     } else {
-                        echo $danhMuc["ten_dm"];
+                        echo $danhMuc["ten_th"];
                     }
                     ?></h1>
                 <div class="trend">
@@ -63,9 +63,7 @@
                                             }
                                             ?>
                                         </p>
-                                        <p class="content__list-product-from">Thương hiệu:
-                                            <?= $rowPhone['ten_th'] ?>
-                                        </p>
+                                        
                                     </div>
                                 </a>
                             </div>

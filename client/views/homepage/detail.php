@@ -1,3 +1,4 @@
+
 <main class="wrapper__content content__detail">
     <div class="grid wide">
         <div class="row col content__detail-product">
@@ -135,8 +136,9 @@
                                 } ?>" alt="" class="content__cmt-form-img">
                             </div>
                             <div class="content__cmt-form-func">
+                                
                             <?php
-                                if (empty($session)) {
+                                if (empty($session['user'])) {
                                     
                                 } else {
                                     echo '<textarea name="content" id="" cols="30" rows="10" class="content__cmt-form-txt"

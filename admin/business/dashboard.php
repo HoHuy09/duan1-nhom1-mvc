@@ -62,7 +62,6 @@ function Comment()
 }
 function addsanpham()
 {
-    
     $listCate = select_danh_muc();
     $sql = 'SELECT id_th, ten_th FROM thuong_hieu';
     $listBrand = select_thuong_hieu($sql);
