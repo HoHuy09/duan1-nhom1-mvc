@@ -14,6 +14,7 @@
 <link rel="stylesheet" href="<?= ADMIN_ASSET ?>dist/css/adminlte.min.css">
 <!-- overlayScrollbars -->
 <link rel="stylesheet" href="<?= ADMIN_ASSET ?>plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+<link rel="stylesheet" href="<?= ADMIN_ASSET ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
 <!-- Daterange picker -->
 <link rel="stylesheet" href="<?= ADMIN_ASSET ?>plugins/daterangepicker/daterangepicker.css">
 <!-- summernote -->

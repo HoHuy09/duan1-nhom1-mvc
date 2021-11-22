@@ -3,7 +3,7 @@
         <div class="card-header">
             <h3 class="card-title">Sản Phẩm</h3>
             <br>
-            <button type="button" class="btn btn-primary">Thêm Danh Mục</button>
+            <a href="#" class="content__box-add">Thêm sản phẩm</a>
         </div>
         <!-- /.card-header -->
         <div class="card-body">
@@ -22,8 +22,8 @@
                             <td><?= $item['ten_dm'] ?></td>
 
                             <td class="td-function">
-                                <button type="button" class="btn btn-warning">Sửa</button>
-                                <button type="button" class="btn btn-danger">Xóa</button>
+                                <a href="#" class="link-function btn-repair">Sửa</a>
+                                <a href="#" class="link-function btn-delete" name="btnDelete">Xóa</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
