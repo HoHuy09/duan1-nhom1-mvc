@@ -124,10 +124,16 @@ function editsanpham($id,$id_dm,$th)
         $date = $_POST['date'];
         $status = $_POST['status'];
         
-
+        $target = $_FILES['file'];           
+        $filename = "";
+        if($target['size'] > 0){
+        $filename = uniqid() . '-' . $target['name'];
+        move_uploaded_file($target['tmp_name'], './public/img/' . $filename);
+        $filename = 'img/' . $filename;
+        }
         if (empty($msg)) {
            
-            edit_product($danh_muc, $name, $price, $brand, $sale, $desc, $date, $status, $id);
+            edit_product($danh_muc, $name, $filename, $price, $brand, $sale, $desc, $date, $status, $id);
             header('Location:'.BASE_URL.'cp-admin/san-pham');
         }
     }

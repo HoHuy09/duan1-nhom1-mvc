@@ -124,12 +124,16 @@ function select_product_follow_id($sql, $id, $id_dm, $th)
         die('Lỗi truy vấn SQL' . $e->getMessage());
     }
 }
-function edit_product($danh_muc, $name, $price, $brand, $sale, $desc, $date, $status, $id)
+function edit_product($danh_muc, $name, $filename, $price, $brand, $sale, $desc, $date, $status, $id)
 {
     $conn = get_connect();
-
-    $sql = "UPDATE san_pham SET id_dm='$danh_muc', ten_sp='$name', gia_sp='$price'
+    if ($filename != '') {
+        $sql = "UPDATE san_pham SET id_dm='$danh_muc', ten_sp='$name', anh_sp='$filename', gia_sp='$price'
         ,id_th='$brand', giam_gia='$sale', mo_ta='$desc', bao_hanh='$date', trang_thai='$status' WHERE id_sp = '$id'";
+    } else {
+        $sql = "UPDATE san_pham SET id_dm='$danh_muc', ten_sp='$name', gia_sp='$price'
+        ,id_th='$brand', giam_gia='$sale', mo_ta='$desc', bao_hanh='$date', trang_thai='$status' WHERE id_sp = '$id'";
+    }
     $stmt = $conn->prepare($sql);
     $stmt->execute();
 }
