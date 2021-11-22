@@ -134,7 +134,7 @@
                                 <ul class="menu_cap2_ul">
                                     <?php foreach ($listRecord as $menu) : ?>
                                         <li class="menu_cap2_li">
-                                            <a href="products.php?id=<?= $menu['id_dm'] ?>" class="menu_cap2_a">
+                                            <a href="<?= BASE_URL.'danh-muc?id='.$menu['id_dm']  ?>" class="menu_cap2_a">
                                                 <?php echo $menu['ten_dm'] ?>
                                             </a>
                                         </li>
