@@ -81,12 +81,12 @@ function select_thuong_hieu($sql)
         die('Loi truy van CSDL' . $e->getMessage());
     }
 }
-function add_product($danh_muc, $name,  $price, $brand, $sale, $desc, $date, $status)
+function add_product($danh_muc, $name, $filename,  $price, $brand, $sale, $desc, $date, $status)
 {
     $conn = get_connect();
-    $sql = "INSERT INTO san_pham (id_dm, ten_sp, gia_sp, id_th,
-        giam_gia, mo_ta, bao_hanh, trang_thai)
-        VALUES('$danh_muc', '$name',  '$price', '$brand', '$sale', '$desc', '$date', '$status')";
+    $sql = "INSERT INTO san_pham (id_dm, ten_sp, anh_sp, gia_sp, id_th,
+    giam_gia, mo_ta, bao_hanh, trang_thai)
+        VALUES('$danh_muc', '$name', '$filename' ,  '$price', '$brand', '$sale', '$desc', '$date', '$status')";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
 }
