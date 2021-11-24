@@ -46,7 +46,7 @@ switch ($url) {
         $id = intval($_GET['id']);
         $id_dm = intval($_GET['id_dm']);
         $th = intval($_GET['th']);
-        editsanpham($id,$id_dm,$th);
+        editsanpham($id, $id_dm, $th);
         break;
     case 'cp-admin/san-pham/delete':
         require_once './admin/business/dashboard.php';
@@ -56,6 +56,18 @@ switch ($url) {
     case 'cp-admin/danh-muc':
         require_once './admin/business/dashboard.php';
         Danhmuc();
+        break;
+    case 'cp-admin/danh-muc/add':
+        require_once './admin/business/dashboard.php';
+        addcategory();
+        break;
+    case 'cp-admin/danh-muc/delete':
+        require_once './admin/business/dashboard.php';
+        $id = intval($_GET['id']);
+        deletedanhmuc($id);
+        break;
+    case 'cp-admin/danh-muc/edit':
+        editdanhmuc($id);
         break;
     case 'cp-admin/thuong-hieu':
         require_once './admin/business/dashboard.php';

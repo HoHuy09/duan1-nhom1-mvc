@@ -169,3 +169,14 @@ function user_login($acc)
     $stmt->setFetchMode(PDO::FETCH_ASSOC);
     return $userInfo = $stmt->fetch();
 }
+
+function add_category($sql, $name)
+{
+    try {
+        $conn = get_connect();
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+    } catch (PDOException $e) {
+        die('Lỗi truy vấn' . $e->getMessage());
+    }
+}
