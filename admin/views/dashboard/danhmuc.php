@@ -21,7 +21,7 @@
                             <td><?= $item['ten_dm'] ?></td>
 
                             <td class="td-function">
-                                <a href="#" class="btn btn-sm btn-info">Sửa</a>
+                                <a href="<?= BASE_URL . 'cp-admin/danh-muc/edit?id=' . $item['id_dm'] ?>" class="btn btn-sm btn-info">Sửa</a>
                                 <a href="<?= BASE_URL . 'cp-admin/danh-muc/delete?id=' . $item['id_dm'] ?>" class="btn btn-sm btn-danger" name="btnDelete">Xóa</a>
                             </td>
                         </tr>

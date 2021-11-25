@@ -168,5 +168,107 @@ function deletedanhmuc($id)
 
 function editdanhmuc()
 {
-    admin_render('dashboard/danhmuc/edit.php');
+    $id = intval($_GET['id']);
+    $sql = "SELECT * FROM danh_muc WHERE id_dm = '$id'";
+    $field = select_danh_muc_fllow_id($sql,$id);
+
+   
+    if(isset($_REQUEST)&&isset($_POST['addCategory'])){
+        $name = $_POST['name'];
+        $sql = "UPDATE danh_muc SET ten_dm = '$name' WHERE id_dm = '$id'";
+        edit_category($sql, $id);
+        header('Location:' . BASE_URL . 'cp-admin/danh-muc');
+    }
+
+    admin_render('dashboard/danhmuc/edit.php',compact('field'));
+}
+function addthuonghieu(){
+    $msg = [];
+    if (isset($_POST['addCategory'])) {
+        $name = $_POST['name'];
+
+        if (empty($name)) {
+            $msg[] =  'Bạn còn để trống dữ liệu !';
+        }
+        if (empty($msg)) {
+            $sql = "INSERT INTO thuong_hieu(ten_th) VALUE ('$name')";
+            add_category($sql, $name);
+            header('Location:' . BASE_URL . 'cp-admin/thuong-hieu');
+        }
+    }
+    admin_render('dashboard/thuonghieu/add.php');
+}
+function deletethuonghieu(){
+    $id  = $_GET['id'];
+    $sql_delete = "DELETE FROM thuong_hieu WHERE id_th = $id";
+    delete($sql_delete, $id);
+    header('Location:' . BASE_URL . 'cp-admin/thuong-hieu');
+}
+function edithuonghieu(){
+    $id = intval($_GET['id']);
+    $sql = "SELECT * FROM thuong_hieu WHERE id_th = '$id'";
+    $brand = select_danh_muc_fllow_id($sql,$id);
+
+    if(isset($_REQUEST)&&isset($_POST['addCategory'])){
+        $name = $_REQUEST['name'];
+        $sql = "UPDATE thuong_hieu SET ten_th = '$name' WHERE id_th = '$id'";
+         edit_category($sql, $id);
+         header('Location:' . BASE_URL . 'cp-admin/thuong-hieu');
+     }
+    admin_render('dashboard/thuonghieu/edit.php',compact('brand'));
+}
+function addslideshow(){
+    $msg = [];
+        if(isset($_REQUEST)&&isset($_POST['addCategory'])){
+            $name = $_REQUEST['name'];
+            $link = $_REQUEST['duonglink'];
+
+
+            $target = $_FILES['file'];
+            
+            $file = "";
+            if ($target['size'] > 0) {
+            $file = uniqid() . '-' . $target['name'];
+            move_uploaded_file($target['tmp_name'], './public/img/' . $file);
+            $file = 'img/' . $file;
+        }
+
+            if(empty($msg)){
+                $sql = "INSERT INTO slide (ten_slide, anh_slide, link_slide) VALUES('$name', '$file', '$link')";
+                add_slide($sql, $name, $file, $link);
+                header('Location:' . BASE_URL . 'cp-admin/slide-show');
+            }           
+         }
+    admin_render('dashboard/slideshow/add.php');
+}
+function deleteslideshow(){
+    $id  = $_GET['id'];
+    $sql_delete = "DELETE FROM slide WHERE id_slide = $id";
+    delete($sql_delete, $id);
+    header('Location:' . BASE_URL . 'cp-admin/slide-show');
+}
+function editslideshow(){
+    $id = intval($_GET['id']);
+    $sql = "SELECT * FROM slide WHERE id_slide = '$id'";
+    $field = select_danh_muc_fllow_id($sql, $id);
+    if(isset($_REQUEST)&&isset($_POST['addCategory'])){
+        $name = $_REQUEST['name'];
+        $link = $_REQUEST['duonglink'];
+
+
+        $target = $_FILES['file'];
+        
+        $file = "";
+        if ($target['size'] > 0) {
+        $file = uniqid() . '-' . $target['name'];
+        move_uploaded_file($target['tmp_name'], './public/img/' . $file);
+        $file = 'img/' . $file;
+    }
+
+        if(empty($msg)){
+            edit_slide($name, $file, $link, $id);
+            header('Location:' . BASE_URL . 'cp-admin/slide-show');
+        }           
+     }
+    admin_render('dashboard/slideshow/edit.php',compact('field'));
 }

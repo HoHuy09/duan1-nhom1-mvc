@@ -1,9 +1,9 @@
+
 <div class="col-md-12">
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">Thương Hiểu</h3>
+            <h3 class="card-title">Thương hiệu</h3>
             <br>
-            <a href="#" class="content__box-add">Thêm Thương Hiểu</a>
         </div>
         <!-- /.card-header -->
         <div class="card-body">
@@ -11,8 +11,8 @@
                 <thead>
                     <tr>
                         <th style="width: 10px">STT</th>
-                        <th>Tên Thương Hiểu</th>
-                        <th>Chức Năng</th>
+                        <th>Tên Danh Mục</th>
+                        <th><a href="<?= BASE_URL . 'cp-admin/thuong-hieu/add' ?>" class="btn btn-sm btn-success">Thêm Thương Hiệu</a></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -22,8 +22,8 @@
                             <td><?= $item['ten_th'] ?></td>
 
                             <td class="td-function">
-                                <a href="#" class="link-function btn-repair">Sửa</a>
-                                <a href="#" class="link-function btn-delete" name="btnDelete">Xóa</a>
+                                <a href="<?= BASE_URL . 'cp-admin/thuong-hieu/edit?id=' . $item['id_th'] ?>" class="btn btn-sm btn-info">Sửa</a>
+                                <a href="<?= BASE_URL . 'cp-admin/thuong-hieu/delete?id=' . $item['id_th'] ?>" class="btn btn-sm btn-danger" name="btnDelete">Xóa</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

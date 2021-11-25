@@ -180,3 +180,53 @@ function add_category($sql, $name)
         die('Lỗi truy vấn' . $e->getMessage());
     }
 }
+function select_danh_muc_fllow_id($sql, $id)
+{
+    try {
+        $conn = get_connect();
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        return $field = $stmt->fetch();
+    } catch (PDOException $e) {
+        die('Lỗi truy vấn SQL' . $e->getMessage());
+    }
+}
+function edit_category($sql, $id)
+{
+    try {
+        $conn = get_connect();
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        header('Location: ../table_category.php');
+    } catch (PDOException $e) {
+        die('Lỗi truy vấn' . $e->getMessage());
+    }
+}
+function add_slide($sql, $valua1, $value2, $value3)
+{
+    try {
+        $conn = get_connect();
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+    } catch (PDOException $e) {
+        die('Lỗi truy vấn' . $e->getMessage());
+    }
+}
+function edit_slide($name, $file, $link, $id)
+{
+    try {
+        $conn = get_connect();
+        if ($file != '') {
+            $sql = "UPDATE slide SET ten_slide = '$name', anh_slide = '$file', link_slide = '$link' WHERE id_slide = '$id'";
+        } else {
+            $sql = "UPDATE slide SET ten_slide = '$name', link_slide = '$link' WHERE id_slide = '$id'";
+        }
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+
+    } catch (PDOException $e) {
+        die('Lỗi truy vấn' . $e->getMessage());
+    }
+}
+

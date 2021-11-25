@@ -71,15 +71,40 @@ switch ($url) {
         deletedanhmuc($id);
         break;
     case 'cp-admin/danh-muc/edit':
-        editdanhmuc($id);
+        require_once './admin/business/dashboard.php';
+        editdanhmuc();
         break;
     case 'cp-admin/thuong-hieu':
         require_once './admin/business/dashboard.php';
         Thuonghieu();
         break;
+    case 'cp-admin/thuong-hieu/add':
+        require_once './admin/business/dashboard.php';
+        addthuonghieu();
+        break;
+    case 'cp-admin/thuong-hieu/edit':
+        require_once './admin/business/dashboard.php';
+        edithuonghieu();
+        break;
+    case 'cp-admin/thuong-hieu/delete':
+        require_once './admin/business/dashboard.php';
+        deletethuonghieu();
+        break;
     case 'cp-admin/slide-show':
         require_once './admin/business/dashboard.php';
         Slideshow();
+        break;
+    case 'cp-admin/slide-show/add':
+        require_once './admin/business/dashboard.php';
+        addslideshow();
+        break;
+    case 'cp-admin/slide-show/edit':
+        require_once './admin/business/dashboard.php';
+        editslideshow();
+        break;
+    case 'cp-admin/slide-show/delete':
+        require_once './admin/business/dashboard.php';
+        deleteslideshow();
         break;
     case 'cp-admin/user':
         require_once './admin/business/dashboard.php';
@@ -92,4 +117,5 @@ switch ($url) {
     default:
         # code...
         break;
+        
 }

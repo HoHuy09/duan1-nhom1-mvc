@@ -1,32 +1,32 @@
 <div class="col-md-12">
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">Slide-Show</h3>
+            <h3 class="card-title">Danh Mục</h3>
             <br>
-            <a href="#" class="content__box-add">Thêm Slide-Show</a>
         </div>
         <!-- /.card-header -->
         <div class="card-body">
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th style="width: 10px">STT</th>
+                    <th style="width: 10px">STT</th>
                         <th>Ảnh Slide Show</th>
                         <th>Tên Slide Show</th>
                         <th>Đường Link</th>
-                        <th>Chức Năng</th>
+                        <th><a href="<?= BASE_URL . 'cp-admin/slide-show/add' ?>" class="btn btn-sm btn-success">Thêm slide</a></th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php foreach ($listSlide as $item) : ?>
                         <tr>
-                            <td><?= $item['id_slide'] ?></td>
+                        <td><?= $item['id_slide'] ?></td>
                             <td><img src="<?= PUBLIC_PATH . $item['anh_slide'] ?>" width="250"></td>
                             <td><?= $item['ten_slide'] ?></td>
                             <td><?= $item['link_slide'] ?></td>
+
                             <td class="td-function">
-                                <a href="#" class="link-function btn-repair">Sửa</a>
-                                <a href="#" class="link-function btn-delete" name="btnDelete">Xóa</a>
+                                <a href="<?= BASE_URL . 'cp-admin/slide-show/edit?id=' . $item['id_slide'] ?>" class="btn btn-sm btn-info">Sửa</a>
+                                <a href="<?= BASE_URL . 'cp-admin/slide-show/delete?id=' . $item['id_slide'] ?>" class="btn btn-sm btn-danger" name="btnDelete">Xóa</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -45,3 +45,4 @@
         </div>
     </div>
 </div>
+
