@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="<?= PUBLIC_PATH ?>css/products.css"/>
     <link rel="stylesheet" href="<?= PUBLIC_PATH ?>css/detail.css"/>
     <link rel="stylesheet" href="<?= PUBLIC_PATH ?>css/gioithieu.css">
+   
     
 </head>
 <body>
@@ -157,7 +158,7 @@
                                 <a href="<?=BASE_URL."gioi-thieu"?>" class="header__nav-link">Giới Thiệu</a>
                             </li>
                             <li class="header__nav-item">
-                                <a href="tintuc.php" class="header__nav-link">Tin Tức</a>
+                                <a href="<?=BASE_URL."tin-tuc"?>" class="header__nav-link">Tin Tức</a>
                             </li>
                             <li class="header__nav-item">
                                 <a href="#" class="header__nav-link">Liên Hệ</a>

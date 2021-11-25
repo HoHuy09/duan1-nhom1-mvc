@@ -145,6 +145,15 @@ function detail(){
     // }
     client_render('homepage/detail.php',compact('products','binhLuan','salesPrdt','product','listRecord','thuonghieu'));
 }
+function tintuc(){
+    $sql = "SELECT * FROM danh_muc";
+    $listRecord = select_page($sql);
+    $sql = "SELECT * FROM thuong_hieu";
+    $thuonghieu = select_page($sql);
+    $sql = "SELECT * FROM tin_tuc ORDER BY ma_tin_tuc desc limit 6";
+    $tintuc = select_page($sql);
+    client_render('homepage/tintuc.php',compact('tintuc','listRecord','thuonghieu'));
+}
 
 
 ?>

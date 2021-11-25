@@ -29,6 +29,10 @@ switch ($url) {
         require_once './client/business/homepage.php';
         detail();
         break;
+    case 'tin-tuc':
+        require_once './client/business/homepage.php';
+        tintuc();
+         break;
     case 'cp-admin':
         require_once './admin/business/dashboard.php';
         dashboard_index();
