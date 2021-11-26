@@ -154,6 +154,13 @@ function tintuc(){
     $tintuc = select_page($sql);
     client_render('homepage/tintuc.php',compact('tintuc','listRecord','thuonghieu'));
 }
+function logout(){
+    if(isset($_SESSION['user'])&&isset($_SESSION['user']) != ""){
+        unset($_SESSION['user']);
+        header('location: '.BASE_URL);
+    }
+    client_render('homepage/logout.php');
+}
 
 
 ?>

@@ -98,7 +98,7 @@
                                                 </li>
                                                 <li class="header__user-item">
                                                     <i class="fas fa-sign-out-alt user-item-icon"></i>
-                                                    <a href="user/logout.php" class="header__user-link">Đăng xuất</a>
+                                                    <a href="<?=BASE_URL.'logout'?>" class="header__user-link">Đăng xuất</a>
                                                 </li>
                                             </ul>
                                         </div>

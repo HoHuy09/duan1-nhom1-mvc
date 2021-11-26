@@ -14,6 +14,9 @@ switch ($url) {
     case 'signin':
         require_once './client/business/homepage.php';
         signin();
+    case 'logout':
+        require_once './client/business/homepage.php';
+        logout();
     case 'signup':
         require_once './client/business/homepage.php';
         signup();
