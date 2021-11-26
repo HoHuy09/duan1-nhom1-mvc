@@ -1,8 +1,9 @@
 <div class="col-md-12">
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">Comment</h3>
+            <h3 class="card-title">Tin Tức</h3>
             <br>
+            <a href="#" class="content__box-add">Thêm Tin Tức</a>
         </div>
         <!-- /.card-header -->
         <div class="card-body">
@@ -10,21 +11,23 @@
                 <thead>
                     <tr>
                         <th style="width: 10px">STT</th>
-                        <th>Tên Sản Phẩm</th>
-                        <th>Số Lượng</th>
-                        <th>Thời Gian</th>
+                        <th>Ảnh Tin Túc</th>
+                        <th>Tiêu Đề</th>
+                        <th>Ngày Đăng Tin</th>
+                        <th>Nội Dung Ngắn</th>
                         <th>Chức Năng</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($listCmt as $cmt) :   ?>
+                    <?php foreach ($listSlide as $item) : ?>
                         <tr>
-                            <td><?= $cmt['id_bl'] ?></td>
-                            <td><?= $cmt['ten_sp'] ?></td>
-                            <td><?= $cmt['sl'] ?></td>
-                            <td><?= $cmt['thoi_gian'] ?></td>
+                            <td><?= $item['id_slide'] ?></td>
+                            <td><img src="<?= PUBLIC_PATH . $item['anh_slide'] ?>" width="250"></td>
+                            <td><?= $item['ten_slide'] ?></td>
+                            <td><?= $item['link_slide'] ?></td>
                             <td class="td-function">
-                                <a href="<?= BASE_URL . 'cp-admin/comment/detail' ?>" class="btn btn-sm btn-success">Chi Tiết</a>
+                                <a href="#" class="link-function btn-repair">Sửa</a>
+                                <a href="#" class="link-function btn-delete" name="btnDelete">Xóa</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

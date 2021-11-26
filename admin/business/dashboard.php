@@ -59,7 +59,23 @@ function User()
 }
 function Comment()
 {
-    admin_render('dashboard/user.php', compact('listUser'));
+    $sql = "SELECT sp.ten_sp, bl.id_bl,bl.thoi_gian, COUNT(bl.id_sp) as sl, bl.id_sp 
+    FROM binh_luan AS bl INNER JOIN san_pham AS sp ON bl.id_sp = sp.id_sp 
+    GROUP BY sp.ten_sp ORDER BY bl.id_bl DESC";
+    $listCmt = select_all_follow_order($sql);
+    admin_render('dashboard/comment.php', compact('listCmt'));
+}
+function CommentDetail()
+{
+    if (!isset($_GET['id_bl']) && !isset($_GET['id_sp'])) {
+        header('Location: ../frames_func.php?page_layout=comment');
+    }
+    $id = intval($_GET['id_bl']);
+    $id_sp = intval($_GET['id_sp']);
+    $sql = "SELECT u.name, bl.noi_dung, bl.thoi_gian, bl.id_bl, bl.id_sp FROM binh_luan AS bl 
+    INNER JOIN user AS u ON bl.id_user = u.id_user WHERE bl.id_bl = '$id' || bl.id_sp = '$id_sp'";
+    $detailCmt = detail_cmt($sql, $id, $id_sp);
+    admin_render('dashboard/commentDetail.php');
 }
 function addsanpham()
 {
@@ -170,19 +186,20 @@ function editdanhmuc()
 {
     $id = intval($_GET['id']);
     $sql = "SELECT * FROM danh_muc WHERE id_dm = '$id'";
-    $field = select_danh_muc_fllow_id($sql,$id);
+    $field = select_danh_muc_fllow_id($sql, $id);
 
-   
-    if(isset($_REQUEST)&&isset($_POST['addCategory'])){
+
+    if (isset($_REQUEST) && isset($_POST['addCategory'])) {
         $name = $_POST['name'];
         $sql = "UPDATE danh_muc SET ten_dm = '$name' WHERE id_dm = '$id'";
         edit_category($sql, $id);
         header('Location:' . BASE_URL . 'cp-admin/danh-muc');
     }
 
-    admin_render('dashboard/danhmuc/edit.php',compact('field'));
+    admin_render('dashboard/danhmuc/edit.php', compact('field'));
 }
-function addthuonghieu(){
+function addthuonghieu()
+{
     $msg = [];
     if (isset($_POST['addCategory'])) {
         $name = $_POST['name'];
@@ -198,77 +215,82 @@ function addthuonghieu(){
     }
     admin_render('dashboard/thuonghieu/add.php');
 }
-function deletethuonghieu(){
+function deletethuonghieu()
+{
     $id  = $_GET['id'];
     $sql_delete = "DELETE FROM thuong_hieu WHERE id_th = $id";
     delete($sql_delete, $id);
     header('Location:' . BASE_URL . 'cp-admin/thuong-hieu');
 }
-function edithuonghieu(){
+function edithuonghieu()
+{
     $id = intval($_GET['id']);
     $sql = "SELECT * FROM thuong_hieu WHERE id_th = '$id'";
-    $brand = select_danh_muc_fllow_id($sql,$id);
+    $brand = select_danh_muc_fllow_id($sql, $id);
 
-    if(isset($_REQUEST)&&isset($_POST['addCategory'])){
+    if (isset($_REQUEST) && isset($_POST['addCategory'])) {
         $name = $_REQUEST['name'];
         $sql = "UPDATE thuong_hieu SET ten_th = '$name' WHERE id_th = '$id'";
-         edit_category($sql, $id);
-         header('Location:' . BASE_URL . 'cp-admin/thuong-hieu');
-     }
-    admin_render('dashboard/thuonghieu/edit.php',compact('brand'));
+        edit_category($sql, $id);
+        header('Location:' . BASE_URL . 'cp-admin/thuong-hieu');
+    }
+    admin_render('dashboard/thuonghieu/edit.php', compact('brand'));
 }
-function addslideshow(){
+function addslideshow()
+{
     $msg = [];
-        if(isset($_REQUEST)&&isset($_POST['addCategory'])){
-            $name = $_REQUEST['name'];
-            $link = $_REQUEST['duonglink'];
-
-
-            $target = $_FILES['file'];
-            
-            $file = "";
-            if ($target['size'] > 0) {
-            $file = uniqid() . '-' . $target['name'];
-            move_uploaded_file($target['tmp_name'], './public/img/' . $file);
-            $file = 'img/' . $file;
-        }
-
-            if(empty($msg)){
-                $sql = "INSERT INTO slide (ten_slide, anh_slide, link_slide) VALUES('$name', '$file', '$link')";
-                add_slide($sql, $name, $file, $link);
-                header('Location:' . BASE_URL . 'cp-admin/slide-show');
-            }           
-         }
-    admin_render('dashboard/slideshow/add.php');
-}
-function deleteslideshow(){
-    $id  = $_GET['id'];
-    $sql_delete = "DELETE FROM slide WHERE id_slide = $id";
-    delete($sql_delete, $id);
-    header('Location:' . BASE_URL . 'cp-admin/slide-show');
-}
-function editslideshow(){
-    $id = intval($_GET['id']);
-    $sql = "SELECT * FROM slide WHERE id_slide = '$id'";
-    $field = select_danh_muc_fllow_id($sql, $id);
-    if(isset($_REQUEST)&&isset($_POST['addCategory'])){
+    if (isset($_REQUEST) && isset($_POST['addCategory'])) {
         $name = $_REQUEST['name'];
         $link = $_REQUEST['duonglink'];
 
 
         $target = $_FILES['file'];
-        
+
         $file = "";
         if ($target['size'] > 0) {
-        $file = uniqid() . '-' . $target['name'];
-        move_uploaded_file($target['tmp_name'], './public/img/' . $file);
-        $file = 'img/' . $file;
-    }
+            $file = uniqid() . '-' . $target['name'];
+            move_uploaded_file($target['tmp_name'], './public/img/' . $file);
+            $file = 'img/' . $file;
+        }
 
-        if(empty($msg)){
+        if (empty($msg)) {
+            $sql = "INSERT INTO slide (ten_slide, anh_slide, link_slide) VALUES('$name', '$file', '$link')";
+            add_slide($sql, $name, $file, $link);
+            header('Location:' . BASE_URL . 'cp-admin/slide-show');
+        }
+    }
+    admin_render('dashboard/slideshow/add.php');
+}
+function deleteslideshow()
+{
+    $id  = $_GET['id'];
+    $sql_delete = "DELETE FROM slide WHERE id_slide = $id";
+    delete($sql_delete, $id);
+    header('Location:' . BASE_URL . 'cp-admin/slide-show');
+}
+function editslideshow()
+{
+    $id = intval($_GET['id']);
+    $sql = "SELECT * FROM slide WHERE id_slide = '$id'";
+    $field = select_danh_muc_fllow_id($sql, $id);
+    if (isset($_REQUEST) && isset($_POST['addCategory'])) {
+        $name = $_REQUEST['name'];
+        $link = $_REQUEST['duonglink'];
+
+
+        $target = $_FILES['file'];
+
+        $file = "";
+        if ($target['size'] > 0) {
+            $file = uniqid() . '-' . $target['name'];
+            move_uploaded_file($target['tmp_name'], './public/img/' . $file);
+            $file = 'img/' . $file;
+        }
+
+        if (empty($msg)) {
             edit_slide($name, $file, $link, $id);
             header('Location:' . BASE_URL . 'cp-admin/slide-show');
-        }           
-     }
-    admin_render('dashboard/slideshow/edit.php',compact('field'));
+        }
+    }
+    admin_render('dashboard/slideshow/edit.php', compact('field'));
 }

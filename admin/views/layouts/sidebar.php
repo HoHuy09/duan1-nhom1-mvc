@@ -90,7 +90,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">
+              <a href="<?= BASE_URL . 'cp-admin/comment' ?>" class="nav-link">
                 <i class="fas fa-comments"></i>
                 <p>
                   Comment
