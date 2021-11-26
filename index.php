@@ -37,6 +37,7 @@ switch ($url) {
         tintuc();
          break;
     case 'cp-admin':
+        checkAuth([ADMIN_ROLE]);
         require_once './admin/business/dashboard.php';
         dashboard_index();
         break;
