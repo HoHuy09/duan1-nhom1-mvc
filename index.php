@@ -85,6 +85,11 @@ switch ($url) {
         require_once './admin/business/dashboard.php';
         Comment();
         break;
+    case 'cp-admin/comment/detail':
+        require_once './admin/business/dashboard.php';
+        CommentDetail();
+        break;
+
     default:
         # code...
         break;

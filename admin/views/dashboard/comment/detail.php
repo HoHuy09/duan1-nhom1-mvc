@@ -1,7 +1,7 @@
 <div class="col-md-12">
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">Comment</h3>
+            <h3 class="card-title">Comment - Detail</h3>
             <br>
         </div>
         <!-- /.card-header -->
@@ -10,21 +10,21 @@
                 <thead>
                     <tr>
                         <th style="width: 10px">STT</th>
-                        <th>Tên Sản Phẩm</th>
-                        <th>Số Lượng</th>
-                        <th>Thời Gian</th>
+                        <th>Nội Dung</th>
+                        <th>Ngày Bình Luận</th>
+                        <th>Người Bình Luận</th>
                         <th>Chức Năng</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($listCmt as $cmt) :   ?>
+                    <?php foreach ($detailCmt as $cmt) : ?>
                         <tr>
                             <td><?= $cmt['id_bl'] ?></td>
-                            <td><?= $cmt['ten_sp'] ?></td>
-                            <td><?= $cmt['sl'] ?></td>
+                            <td><?= $cmt['noi_dung'] ?></td>
                             <td><?= $cmt['thoi_gian'] ?></td>
+                            <td><?= $cmt['name'] ?></td>
                             <td class="td-function">
-                                <a href="<?= BASE_URL . 'cp-admin/comment/detail' ?>" class="btn btn-sm btn-success">Chi Tiết</a>
+                                <a href="#" class="btn btn-sm btn-success">Xóa</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

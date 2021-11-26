@@ -180,3 +180,11 @@ function add_category($sql, $name)
         die('Lỗi truy vấn' . $e->getMessage());
     }
 }
+function detail_cmt($sql, $id, $id_sp)
+{
+    $conn = get_connect();
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+    $stmt->setFetchMode(PDO::FETCH_ASSOC);
+    return $stmt->fetchAll();
+}

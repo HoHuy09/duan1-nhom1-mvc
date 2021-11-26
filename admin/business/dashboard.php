@@ -59,7 +59,23 @@ function User()
 }
 function Comment()
 {
-    admin_render('dashboard/user.php', compact('listUser'));
+    $sql = "SELECT sp.ten_sp, bl.id_bl,bl.thoi_gian, COUNT(bl.id_sp) as sl, bl.id_sp 
+    FROM binh_luan AS bl INNER JOIN san_pham AS sp ON bl.id_sp = sp.id_sp 
+    GROUP BY sp.ten_sp ORDER BY bl.id_bl DESC";
+    $listCmt = select_all_follow_order($sql);
+    admin_render('dashboard/comment.php', compact('listCmt'));
+}
+function CommentDetail()
+{
+    if (!isset($_GET['id_bl']) && !isset($_GET['id_sp'])) {
+        header('Location: ../frames_func.php?page_layout=comment');
+    }
+    $id = intval($_GET['id_bl']);
+    $id_sp = intval($_GET['id_sp']);
+    $sql = "SELECT u.name, bl.noi_dung, bl.thoi_gian, bl.id_bl, bl.id_sp FROM binh_luan AS bl 
+    INNER JOIN user AS u ON bl.id_user = u.id_user WHERE bl.id_bl = '$id' || bl.id_sp = '$id_sp'";
+    $detailCmt = detail_cmt($sql, $id, $id_sp);
+    admin_render('dashboard/commentDetail.php');
 }
 function addsanpham()
 {
@@ -169,4 +185,10 @@ function deletedanhmuc($id)
 function editdanhmuc()
 {
     admin_render('dashboard/danhmuc/edit.php');
+}
+
+
+function tintuc()
+{
+    admin_render('dashboard/danhmuc/tintuc.php');
 }
