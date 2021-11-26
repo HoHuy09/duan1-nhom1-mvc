@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="<?= PUBLIC_PATH ?>css/products.css"/>
     <link rel="stylesheet" href="<?= PUBLIC_PATH ?>css/detail.css"/>
     <link rel="stylesheet" href="<?= PUBLIC_PATH ?>css/gioithieu.css">
+   
     
 </head>
 <body>
@@ -97,7 +98,7 @@
                                                 </li>
                                                 <li class="header__user-item">
                                                     <i class="fas fa-sign-out-alt user-item-icon"></i>
-                                                    <a href="user/logout.php" class="header__user-link">Đăng xuất</a>
+                                                    <a href="<?=BASE_URL.'logout'?>" class="header__user-link">Đăng xuất</a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -157,7 +158,7 @@
                                 <a href="<?=BASE_URL."gioi-thieu"?>" class="header__nav-link">Giới Thiệu</a>
                             </li>
                             <li class="header__nav-item">
-                                <a href="tintuc.php" class="header__nav-link">Tin Tức</a>
+                                <a href="<?=BASE_URL."tin-tuc"?>" class="header__nav-link">Tin Tức</a>
                             </li>
                             <li class="header__nav-item">
                                 <a href="#" class="header__nav-link">Liên Hệ</a>
