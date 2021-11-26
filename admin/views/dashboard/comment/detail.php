@@ -18,6 +18,7 @@
                 </thead>
                 <tbody>
                     <?php foreach ($detailCmt as $cmt) : ?>
+
                         <tr>
                             <td><?= $cmt['id_bl'] ?></td>
                             <td><?= $cmt['noi_dung'] ?></td>
