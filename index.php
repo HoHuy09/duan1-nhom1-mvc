@@ -1,4 +1,4 @@
-<?php
+-<?php
 session_start();
 $session = isset($_SESSION['user']) ? $_SESSION['user'] : "";
 $url = isset($_GET['url']) ? $_GET['url'] : "/";
@@ -65,6 +65,10 @@ switch ($url) {
     case 'cp-admin/comment':
         require_once './admin/business/dashboard.php';
         Comment();
+        break;
+    case 'lienhe':
+        require_once './client/business/homepage.php';
+        lienhe();
         break;
     default:
         # code...
