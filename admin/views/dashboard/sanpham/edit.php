@@ -15,14 +15,14 @@ if (!empty($msg)) {
             <?php
             foreach ($listCate as $value) {
             ?>
-             <?php 
-                        if($value['id_dm']==$field['id_dm']){
-                            $selected = "selected";
-                        }else{
-                            $selected = '';
-                        }
-                    ?>
-                <option value="<?php echo $value['id_dm'] ?>"<?=$selected?>><?php echo $value['ten_dm'] ?></option>
+                <?php
+                if ($value['id_dm'] == $field['id_dm']) {
+                    $selected = "selected";
+                } else {
+                    $selected = '';
+                }
+                ?>
+                <option value="<?php echo $value['id_dm'] ?>" <?= $selected ?>><?php echo $value['ten_dm'] ?></option>
             <?php
             }
             ?>
@@ -30,7 +30,7 @@ if (!empty($msg)) {
     </div>
     <div class="content__box-product-add-field">
         <label for="">Tên sản phẩm :</label>
-        <textarea name="name" id="" cols="130" rows="2" class="name-box"><?=$field['ten_sp']?></textarea>
+        <textarea name="name" id="" cols="130" rows="2" class="name-box"><?= $field['ten_sp'] ?></textarea>
     </div>
     <div class="content__box-product-add-field">
         <label for="">Ảnh sản phẩm :</label>
@@ -38,7 +38,7 @@ if (!empty($msg)) {
     </div>
     <div class="content__box-product-add-field">
         <label for="">Giá sản phẩm :</label>
-        <input type="text" name="price" value="<?=$field['gia_sp']?>" placeholder="giá sp" class="input-txt">
+        <input type="text" name="price" value="<?= $field['gia_sp'] ?>" placeholder="giá sp" class="input-txt">
     </div>
     <div class="content__box-product-add-field">
         <label for="">Thương hiệu :</label>
@@ -46,14 +46,14 @@ if (!empty($msg)) {
             <?php
             foreach ($listBrand as $value) {
             ?>
-            <?php 
-                        if($value['id_th']==$field['id_th']){
-                            $selected = "selected";
-                        }else{
-                            $selected = '';
-                        }
-                    ?>
-                <option value="<?php echo $value['id_th'] ?>"<?=$selected?>><?php echo $value['ten_th'] ?></option>
+                <?php
+                if ($value['id_th'] == $field['id_th']) {
+                    $selected = "selected";
+                } else {
+                    $selected = '';
+                }
+                ?>
+                <option value="<?php echo $value['id_th'] ?>" <?= $selected ?>><?php echo $value['ten_th'] ?></option>
             <?php
             }
             ?>
@@ -61,19 +61,19 @@ if (!empty($msg)) {
     </div>
     <div class="content__box-product-add-field">
         <label for="">Sale :</label>
-        <input type="number" name="sale" value="<?=$field['giam_gia']?>" placeholder="giảm giá" class="input-txt">
+        <input type="number" name="sale" value="<?= $field['giam_gia'] ?>" placeholder="giảm giá" class="input-txt">
     </div>
     <div class="content__box-product-add-field">
         <label for="">Bảo hành :</label>
-        <input type="text" name="date" value="<?=$field['bao_hanh']?>" placeholder="bảo hành" class="input-txt">
+        <input type="text" name="date" value="<?= $field['bao_hanh'] ?>" placeholder="bảo hành" class="input-txt">
     </div>
     <div class="content__box-product-add-field">
         <label for="">Trạng thái :</label>
-        <input type="number" name="status" value="<?=$field['trang_thai']?>" placeholder="trạng thái" class="input-txt">
+        <input type="number" name="status" value="<?= $field['trang_thai'] ?>" placeholder="trạng thái" class="input-txt">
     </div>
     <div class="content__box-product-add-field editer">
         <label for="" class="label-editer">Mô tả :</label>
-        <textarea name="desc" id="" cols="130" rows="2" placeholder="mô tả" class="txt-box"><?=$field['mo_ta']?></textarea>
+        <textarea name="desc" id="" cols="130" rows="2" placeholder="mô tả" class="txt-box"><?= $field['mo_ta'] ?></textarea>
         <script>
             CKEDITOR.replace('desc');
         </script>

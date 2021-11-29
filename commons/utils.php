@@ -29,9 +29,10 @@ function admin_render($view, $data = [])
     $view = './admin/views/' . $view;
     include_once "./admin/views/layouts/main.php";
 }
-function checkAuth($roles = []){
-    
-    if(!isset($_SESSION['user']) || $_SESSION['user'] == null || !in_array($_SESSION['user']['roles'], $roles)){
+function checkAuth($roles = [])
+{
+
+    if (!isset($_SESSION['user']) || $_SESSION['user'] == null || !in_array($_SESSION['user']['roles'], $roles)) {
         header('location: ' . BASE_URL . 'signup');
         die;
     }
