@@ -50,7 +50,7 @@
                             giao hàng cho những khách hàng với tiền thanh toán lớn hớn 1.000.000 đ trên toàn quốc.
                         </div>
                     </div>
-                    <a href="./add_cart.php" class="content__product-title-btn">
+                    <a href="<?= BASE_URL.'add_cart?id='. $product['id_sp']?>" class="content__product-title-btn">
                         <i class="fas fa-shopping-cart"></i>
                         <span class="content__product-title-btn-txt">Chọn mua</span>
                     </a>

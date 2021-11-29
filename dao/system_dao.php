@@ -90,6 +90,13 @@ function add_product($danh_muc, $name, $filename,  $price, $brand, $sale, $desc,
     $stmt = $conn->prepare($sql);
     $stmt->execute();
 }
+function add_cart2($id_us,$id_pr)
+{
+    $conn = get_connect();
+    $sql = "INSERT INTO cart( id_user, id_product) VALUES ('$id_us','$id_pr')";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+}
 function select_product_detail_follow_id($sql, $id)
 {
     try {

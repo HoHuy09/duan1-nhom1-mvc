@@ -295,8 +295,4 @@ function editslideshow()
     admin_render('dashboard/slideshow/edit.php', compact('field'));
 }
 
-function add_cart()
-{
 
-    admin_render('dashboard/add_cart');
-}

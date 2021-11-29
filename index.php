@@ -123,10 +123,17 @@ switch ($url) {
         CommentDetail();
         break;
     case 'add_cart':
-        require_once './client/business/homepage.php';
+        require_once './client/business/category.php';
         add_cart();
         break;
-
+    case 'cart':
+        require_once './client/business/category.php';
+        get_cart();
+        break;
+    case 'lien-he':
+        require_once './client/business/category.php';
+        lienhe();
+        break;
     default:
         # code...
         break;

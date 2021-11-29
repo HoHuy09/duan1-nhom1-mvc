@@ -46,6 +46,30 @@ function list_thuonghieu(){
     $result = select_page($sql);
     client_render('category/thuonghieu.php',compact('listRecord','thuonghieu','viewss','result'));
 }
-
+function add_cart()
+{
+    $id_us = $_SESSION['user']['id_user'];
+    $id_pr = $_GET['id'];
+    add_cart2($id_us,$id_pr);
+    header('location: '.BASE_URL.'cart');
+}
+function get_cart(){
+    $id_us = $_SESSION['user']['id_user'];
+    $sql = "SELECT * FROM danh_muc";
+    $listRecord = select_page($sql);
+    $sql = "SELECT * FROM thuong_hieu";
+    $thuonghieu = select_page($sql);
+    $sql = "SELECT * FROM cart INNER JOIN san_pham ON cart.id_product = san_pham.id_sp WHERE id_user = '$id_us' ORDER BY id DESC";
+    $abc = select_page($sql);
+    
+    client_render('homepage/cart.php',compact('abc','listRecord','thuonghieu'));
+}
+function lienhe(){
+    $sql = "SELECT * FROM danh_muc";
+    $listRecord = select_page($sql);
+    $sql = "SELECT * FROM thuong_hieu";
+    $thuonghieu = select_page($sql);
+    client_render('homepage/lienhe.php',compact('listRecord','thuonghieu'));
+}
 
 ?>

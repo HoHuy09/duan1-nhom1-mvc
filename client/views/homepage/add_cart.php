@@ -6,61 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Giỏ Hàng</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    
 
 </head>
-<style>
-    @media screen and (max-width: 600px) {
-        table#cart tbody td .form-control {
-            width: 20%;
-            display: inline !important;
-        }
 
-        .actions .btn {
-            width: 36%;
-            margin: 1.5em 0;
-        }
-
-        .actions .btn-info {
-            float: left;
-        }
-
-        .actions .btn-danger {
-            float: right;
-        }
-
-        table#cart thead {
-            display: none;
-        }
-
-        table#cart tbody td {
-            display: block;
-            padding: .6rem;
-            min-width: 320px;
-        }
-
-        table#cart tbody tr td:first-child {
-            background: #333;
-            color: #fff;
-        }
-
-        table#cart tbody td:before {
-            content: attr(data-th);
-            font-weight: bold;
-            display: inline-block;
-            width: 8rem;
-        }
-
-        table#cart tfoot td {
-            display: block;
-        }
-
-        table#cart tfoot td .btn {
-            display: block;
-        }
-    }
-</style>
 
 <body>
     <h2 class="text-center">Trang Giỏ Hàng</h2>

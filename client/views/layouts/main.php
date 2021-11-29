@@ -161,7 +161,7 @@
                                 <a href="<?=BASE_URL."tin-tuc"?>" class="header__nav-link">Tin Tức</a>
                             </li>
                             <li class="header__nav-item">
-                                <a href="#" class="header__nav-link">Liên Hệ</a>
+                                <a href="<?=BASE_URL."lien-he"?>" class="header__nav-link">Liên Hệ</a>
                             </li>
                         </ul>
                     </nav>
