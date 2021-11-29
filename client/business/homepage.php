@@ -90,65 +90,6 @@ function signup(){
     client_render('homepage/signup.php',compact('listRecord','thuonghieu'));
 }
 
-function detail(){
-    $sql = "SELECT * FROM danh_muc";
-    $listRecord = select_page($sql);
-    $sql = "SELECT * FROM thuong_hieu";
-    $thuonghieu = select_page($sql);
-    if (isset($_GET['id'])) {
-        $id = $_GET['id'];
-        $sql = "SELECT * FROM san_pham INNER JOIN thuong_hieu ON san_pham.id_th = thuong_hieu.id_th WHERE id_sp = $id";
-        $product = select_dmuc($sql);
-    }
-    //
-    $sql = "SELECT * FROM san_pham ORDER BY giam_gia DESC LIMIT 4";
-    $salesPrdt = select_page($sql);
-    //
-    $a = $product['id_dm'];
-    $b = $product['id_sp'];
-    
-    $sql = "SELECT * FROM san_pham WHERE  id_dm = '$a' AND id_sp != '$b' LIMIT 6";
-    $products = select_page($sql);
-    //
-    $sql = "SELECT * FROM binh_luan INNER JOIN user ON binh_luan.id_user = user.id_user WHERE id_sp = '$id' ORDER BY id_bl DESC LIMIT 4";
-    $binhLuan = select_page($sql);
-    //
-    $luotXemUD = $product['luot_xem'] + 1;
-    $sqlUd = "UPDATE san_pham SET luot_xem='$luotXemUD' WHERE id_sp = '$id'";
-    $conn = get_connect();
-    $stmt = $conn->prepare($sqlUd);
-    $stmt->execute();
-    //
-    // if (isset($_POST['btnComment'])) {
-    //     $id_user = $session['id_user'];
-    //     extract($_POST);
-    //     if ($content == "") {
-    //         $err_comment = "Bạn cần nhập vào bình luận";
-    
-    //     }
-    //     $id_sp = $id;
-    //     $dates = date('Y-m-d H:i:s');
-    //     $sql = "INSERT INTO binh_luan (id_user,id_sp,noi_dung,thoi_gian) VALUES ('$id_user','$id_sp','$content','$dates')";
-    //     $conn = get_connect();
-    //     $stmt = $conn->prepare($sql);
-    //     if ($id_user != 0) {
-    //         if (!isset($err_comment)) {
-    //             $stmt->execute();
-    //             header("location:" . "/PHP1/assignment" . "/detail.php?id=" . $id . "#comment");
-    //         }
-    //     } else {
-    //         echo "<script>
-    //                 alert('Bạn cần đăng nhập để được Bình luận.');
-    //                 history.back();
-    //             </script>";
-        
-    //     }
-    // }
-    client_render('homepage/detail.php',compact('products','binhLuan','salesPrdt','product','listRecord','thuonghieu'));
-}
-function lienhe(){
-    client_render('homepage/lienhe.php');
-}
 
 
 ?>
