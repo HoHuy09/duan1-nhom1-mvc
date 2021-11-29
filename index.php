@@ -35,7 +35,7 @@ switch ($url) {
     case 'tin-tuc':
         require_once './client/business/homepage.php';
         tintuc();
-         break;
+        break;
     case 'cp-admin':
         checkAuth([ADMIN_ROLE]);
         require_once './admin/business/dashboard.php';
@@ -122,9 +122,12 @@ switch ($url) {
         require_once './admin/business/dashboard.php';
         CommentDetail();
         break;
+    case 'add_cart':
+        require_once './client/business/homepage.php';
+        add_cart();
+        break;
 
     default:
         # code...
         break;
-        
 }

@@ -3,7 +3,6 @@
         <div class="card-header">
             <h3 class="card-title">User</h3>
             <br>
-            <a href="#" class="content__box-add">Thêm User</a>
         </div>
         <!-- /.card-header -->
         <div class="card-body">
@@ -16,7 +15,7 @@
                         <th>Email</th>
                         <th>Ảnh Đại Diện</th>
                         <th>Phân Quyền</th>
-                        <th>Chức năng</th>
+                        <th><a href="#" class="btn btn-sm btn-success">Thêm User</a></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -26,7 +25,7 @@
                             <td><?= $item['account'] ?></td>
                             <td><?= $item['name'] ?></td>
                             <td><?= $item['email'] ?></td>
-                            <td><img src="<?= PUBLIC_PATH .'img/'. $item['avatar'] ?>" width="50"></td>
+                            <td><img src="<?= PUBLIC_PATH . 'img/' . $item['avatar'] ?>" width="50"></td>
                             <td class="td-name">
                                 <?php if ($item['roles'] == 1) {
                                     echo "Admin";
@@ -38,8 +37,9 @@
                             </td>
 
                             <td class="td-function">
-                                <a href="#" class="link-function btn-repair">Sửa</a>
-                                <a href="#" class="link-function btn-delete" name="btnDelete">Xóa</a>
+                                <a href="#" class="btn btn-sm btn-info">Sửa</a>
+
+                                <a href="#" class="btn btn-sm btn-danger" name="btnDelete">Xóa</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
