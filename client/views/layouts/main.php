@@ -103,7 +103,7 @@
                                             </ul>
                                         </div>
                                         <div class="header__shopping">
-                                            <a href="" class="header__shopping-link">
+                                            <a href="<?=BASE_URL.'cart'?>" class="header__shopping-link">
                                                 <i class="fas fa-shopping-cart icon-shopping"></i>
                                             </a>
                                         </div>
