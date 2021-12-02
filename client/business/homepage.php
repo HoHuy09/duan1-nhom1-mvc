@@ -119,31 +119,32 @@ function detail(){
     $stmt = $conn->prepare($sqlUd);
     $stmt->execute();
     //
-    // if (isset($_POST['btnComment'])) {
-    //     $id_user = $session['id_user'];
-    //     extract($_POST);
-    //     if ($content == "") {
-    //         $err_comment = "Bạn cần nhập vào bình luận";
+    if (isset($_POST['btnComment'])) {
+        $id_user = $_SESSION['user']['id_user'];
+        extract($_POST);
+        if ($content == "") {
+            $err_comment = "Bạn cần nhập vào bình luận";
     
-    //     }
-    //     $id_sp = $id;
-    //     $dates = date('Y-m-d H:i:s');
-    //     $sql = "INSERT INTO binh_luan (id_user,id_sp,noi_dung,thoi_gian) VALUES ('$id_user','$id_sp','$content','$dates')";
-    //     $conn = get_connect();
-    //     $stmt = $conn->prepare($sql);
-    //     if ($id_user != 0) {
-    //         if (!isset($err_comment)) {
-    //             $stmt->execute();
-    //             header("location:" . "/PHP1/assignment" . "/detail.php?id=" . $id . "#comment");
-    //         }
-    //     } else {
-    //         echo "<script>
-    //                 alert('Bạn cần đăng nhập để được Bình luận.');
-    //                 history.back();
-    //             </script>";
+        }
+        $id_sp = $id;
+        $dates = date('Y-m-d H:i:s');
+        $sql = "INSERT INTO binh_luan (id_user,id_sp,noi_dung,thoi_gian) VALUES ('$id_user','$id_sp','$content','$dates')";
+        $conn = get_connect();
+        $stmt = $conn->prepare($sql);
         
-    //     }
-    // }
+        if ($id_user != 0) {
+            if (!isset($err_comment)) {
+                $stmt->execute();
+                header("location:" . $_SERVER['HTTP_REFERER']);
+            }
+        } else {
+            echo "<script>
+                    alert('Bạn cần đăng nhập để được Bình luận.');
+                    history.back();
+                </script>";
+        
+        }
+    }
     client_render('homepage/detail.php',compact('products','binhLuan','salesPrdt','product','listRecord','thuonghieu'));
 }
 function tintuc(){

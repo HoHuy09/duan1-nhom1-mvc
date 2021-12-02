@@ -112,16 +112,16 @@
                         <div class="content__cmt-form-box">
                             <div class="content__cmt-form-avatar">
                                 <img src="<?= PUBLIC_PATH?>img/<?php
-                                if (empty($session)) {
+                                if (empty($_SESSION['user'])) {
                                     echo "avatar.jpg";
                                 } else {
-                                    echo $session['avatar'];
+                                    echo $_SESSION['user']['avatar'];
                                 } ?>" alt="" class="content__cmt-form-img">
                             </div>
                             <div class="content__cmt-form-func">
                                 
                             <?php
-                                if (empty($session['user'])) {
+                                if (empty($_SESSION['user'])) {
                                     
                                 } else {
                                     echo '<textarea name="content" id="" cols="30" rows="10" class="content__cmt-form-txt"
