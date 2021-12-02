@@ -51,32 +51,32 @@
             <br>
             <div class="tv">
                 <div class="tv1">
-                    <img src="public/img/avata1.jpg" width="55px" alt="">
+                    <img src="<?=PUBLIC_PATH.'/img/adminpicture.jpg'?>" width="55px" alt="">
                     <h3 style="margin: 55px; margin-top: -50px;">Hồ Thích Huy</h3>
                     <h4 style="font-style: italic; font-size: initial; margin-top: -50px;margin-left: 65px;">
-                        Liên hệ : 0866193026
+                        Liên hệ : 0965422573
                     </h4>
                 </div>
                 <div class="tv1" style="margin-top: 20px;">
-                    <img src="public/img/avata1.jpg" width="55px" alt="">
+                    <img src="public/img/z2987722913364_c90c66b450c1d9c9ccc1242f510409d4.jpg" width="55px" alt="">
                     <h3 style="margin: 55px; margin-top: -50px;">Lê Ngọc Quỳnh</h3>
                     <h4 style="font-style: italic; font-size: initial; margin-top: -50px;margin-left: 65px;">
                         Liên hệ : 0866193026
                     </h4>
                 </div>
-                <div class="cow" style="margin-left: 295px; margin-top:-163px;">
+                <div class="cow" style="margin-left: 295px; margin-top:-190px;">
                     <div class="tv1">
-                        <img src="public/img/avata1.jpg" width="55px" alt="">
+                        <img src="public/img/z2987727066217_a81b9bee9c54b30e38d7aabcd3a91f82.jpg" width="55px" alt="">
                         <h3 style="margin: 55px; margin-top: -50px;">Trịnh Văn Tú</h3>
                         <h4 style="font-style: italic; font-size: initial; margin-top: -50px;margin-left: 65px;">
-                            Liên hệ : 0866193026
+                            Liên hệ : 0398341826
                         </h4>
                     </div>
                     <div class="tv1" style="margin-top: 20px;">
-                        <img src="public/img/avata1.jpg" width="55px" alt="">
+                        <img src="public/img/z2987730335607_885e31beaf5bd89aea6d710e9e2ccf17.jpg" width="55px" alt="">
                         <h3 style="margin: 55px; margin-top: -50px;">Đỗ Thành Đạt</h3>
                         <h4 style="font-style: italic; font-size: initial; margin-top: -50px;margin-left: 65px;">
-                            Liên hệ : 0866193026
+                            Liên hệ : 0901741503
                         </h4>
                     </div>
                 </div>
