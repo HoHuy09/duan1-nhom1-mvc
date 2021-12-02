@@ -244,3 +244,10 @@ function detail_cmt($sql, $id, $id_sp)
     $stmt->setFetchMode(PDO::FETCH_ASSOC);
     return $stmt->fetchAll();
 }
+function insertDataAndGetId($sql){
+    $connect = get_connect();
+    $stmt = $connect->prepare($sql);
+    $stmt->execute();
+    $id = $connect->lastInsertId();
+    return $id;
+}

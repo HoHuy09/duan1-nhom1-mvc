@@ -1,6 +1,7 @@
 <?php
 require_once './dao/system_dao.php';
 function home(){
+    
     $sqlQuery = "select * from san_pham";
     $products = executeQuery($sqlQuery, true);
     $sql = "SELECT * FROM san_pham ORDER BY giam_gia desc limit 6";
@@ -161,6 +162,104 @@ function logout(){
     }
     client_render('homepage/logout.php');
 }
+function favorite_product(){
+    $id = $_GET['id'];
+    
+    // ktra xem đã được yêu thích sản phẩm này hay chưa 
+    $userId = $_SESSION['user']['id_user'];
+    $checkFavoriteProduct = "select * from favorite_products where product_id = $id and user_id = $userId";
+    $favorite = executeQuery($checkFavoriteProduct, false);
+    // nếu chưa có thì lưu vào db
+    if(!$favorite){
+        $currentTime = date("Y-m-d h:i:s");
+        $addFavoriteQuery = "insert into favorite_products 
+                                (user_id, product_id, created_at)
+                            values 
+                                ($userId, $id, '$currentTime')";
+        executeQuery($addFavoriteQuery);
+    }
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
+}
+function add2Cart(){
+    $pId = $_GET['id'];
+    // lấy thông tin sản phẩm
+    $getProductByIdQuery = "select * from san_pham where id_sp = $pId";
+    $product = executeQuery($getProductByIdQuery, false);
+    if(!$product){
+        header('location: ' . BASE_URL);
+        die;
+    }
+    $cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
+    // kiểm tra xem sản phẩm đã có trong giỏ hàng hay chưa
+    $existedIndex = -1;
+    foreach ($cart as $index => $item) {
+        if($item['id_sp'] == $product['id_sp']){
+            $existedIndex = $index;
+            break;
+        }
+    }
+    // nếu có rồi thì cộng thêm 1 đơn vị vào quantity
+    if($existedIndex != -1){
+        $cart[$existedIndex]['quantity']++;
+    }else{
+        // nếu chưa có thì thêm vào giỏ với quanity mặc định = 1
+        $product['quantity'] = 1;
+        $cart[] = $product;
+    }
 
+    $_SESSION['cart'] = $cart;
+    
+    header('location: ' . BASE_URL.'check-out');
+    die;
+}
+function checkout(){
+    if(!isset($_SESSION['cart']) || empty($_SESSION['cart'])){
+        header('location: '. BASE_URL);
+        die;
+    }
+    $cart = $_SESSION['cart'];
+    $sql = "SELECT * FROM danh_muc";
+    $listRecord = select_page($sql);
+    $sql = "SELECT * FROM thuong_hieu";
+    $thuonghieu = select_page($sql);
+    client_render('homepage/checkout.php', compact('cart','listRecord','thuonghieu'));
+    }
+function paycart(){
+    $name = $_POST['name'];
+    $phone = $_POST['phone'];
+    $email = $_POST['email'];
+    $address = $_POST['address'];
+    $note = $_POST['note'];
+    // insert dữ liệu để tạo hóa đơn mới, sau đó lấy id của hóa đơn
+    $createInvoiceQuery = "insert into invoices 
+                                (customer_name, customer_phone_number, customer_email, 
+                                    customer_address, note)
+                            values
+                                ('$name', '$phone', '$email', '$address', '$note')";
+    $invoiceId = insertDataAndGetId($createInvoiceQuery);
+    $totalPrice = 0;
+    // chạy vòng lặp qua các phần tử của giỏ hàng, sau đó insert dữ liệu vào bảng invoice_detail
+    
+    foreach ($_SESSION['cart'] as $item) {
+        $productId = $item['id_sp'];
+        $price = $item['gia_sp'];
+        $quantity = $item['quantity'];
+        $totalPrice += $price*$quantity;
+        $insertInvoiceDetailQuery = "insert into invoice_detail 
+                                        (invoice_id, product_id, quantity, unit_price)
+                                    values 
+                                        ($invoiceId, $productId, $quantity, $price)";
+        executeQuery($insertInvoiceDetailQuery, false);
+    }
+    // Cập nhật tổng số tiền vào hóa đơn
+    $updateTotalPriceToInvoice = "update invoices
+                                    set total_price = $totalPrice
+                                where id = $invoiceId";
+    executeQuery($updateTotalPriceToInvoice, false);
 
-?>
+    unset($_SESSION['cart']);
+
+    header('location: ' . BASE_URL);
+    die;
+    
+}

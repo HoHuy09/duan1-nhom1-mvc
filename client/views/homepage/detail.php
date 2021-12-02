@@ -23,37 +23,20 @@
                         <span class="content__product-title-quantity-title">Số lượng :</span>
                         <input type="number" class="content__product-title-quantity-input" value="1">
                     </div>
-                    <div>
-
-                    </div>
-                    <div class="content__product-title-grift">
-                        <div class="content__product-title-grift-event">
-                                    <span class="content__product-title-grift-note">
-                                            <i class="fas fa-gift"></i>
-                                            Tặng 100.000 đ
-                                    </span>
-                            mua hàng tại website sShop.vn, áp dụng khi mua Online tại Tp.HCM, Tp. Nha Trang, Tp. Phan
-                            Thiết và 1 số khu vực khác.
-                        </div>
-                        <div class="content__product-title-grift-event">
-                                    <span class="content__product-title-grift-note">
-                                            <i class="fas fa-gift"></i>
-                                            Giảm giá đến 50%
-                                    </span>
-                            cho những khách hàng sử dụng gói mua sắm tiện tích.
-                        </div>
-                        <div class="content__product-title-grift-event">
-                                    <span class="content__product-title-grift-note">
-                                        <i class="fas fa-shipping-fast"></i>
-                                        Miễn phí
-                                    </span>
-                            giao hàng cho những khách hàng với tiền thanh toán lớn hớn 1.000.000 đ trên toàn quốc.
-                        </div>
-                    </div>
-                    <a href="<?= BASE_URL.'add_cart?id='. $product['id_sp']?>" class="content__product-title-btn">
+                    <br><br><br><br> 
+                   
+                    <?php if(isset($_SESSION['user']) && $_SESSION['user'] != null):?>
+                        <a href="<?= BASE_URL . 'yeu-thich?id=' . $product['id_sp']?>" class="content__product-title-btn">
+                        <i class="fas fa-heart"></i>
+                        <span class="content__product-title-btn-txt">Yêu thích</span>
+                    <?php endif ?>
+                    
+                    <br><br>             
+                    <a style="margin-left: 50px;"  href="<?= BASE_URL . 'add-to-cart?id=' . $product['id_sp']?>" class="content__product-title-btn">
                         <i class="fas fa-shopping-cart"></i>
                         <span class="content__product-title-btn-txt">Chọn mua</span>
                     </a>
+                    
                 </div>
             </section>
         </div>

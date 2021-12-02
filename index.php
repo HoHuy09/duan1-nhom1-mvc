@@ -41,6 +41,9 @@ switch ($url) {
         require_once './admin/business/dashboard.php';
         dashboard_index();
         break;
+    case 'yeu-thich':
+        require_once './client/business/homepage.php';
+        favorite_product();
     case 'cp-admin/san-pham':
         require_once './admin/business/dashboard.php';
         Sanpham();
@@ -122,17 +125,21 @@ switch ($url) {
         require_once './admin/business/dashboard.php';
         CommentDetail();
         break;
-    case 'add_cart':
-        require_once './client/business/category.php';
-        add_cart();
-        break;
-    case 'cart':
-        require_once './client/business/category.php';
-        get_cart();
-        break;
     case 'lien-he':
         require_once './client/business/category.php';
         lienhe();
+        break;
+    case 'add-to-cart':
+        require_once './client/business/homepage.php';
+        add2Cart();
+        break;
+    case 'check-out':
+        require_once './client/business/homepage.php';
+        checkout();
+        break;
+    case 'pay-cart':
+        require_once './client/business/homepage.php';
+        paycart();
         break;
     default:
         # code...
