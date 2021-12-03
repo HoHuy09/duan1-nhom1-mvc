@@ -90,6 +90,14 @@
               </a>
             </li>
             <li class="nav-item">
+              <a href="<?= BASE_URL . 'cp-admin/hoadon' ?>" class="nav-link">
+              <i class="fas fa-money-bill"></i>
+                <p>
+                  Hóa Đơn
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
               <a href="<?= BASE_URL . 'cp-admin/comment' ?>" class="nav-link">
                 <i class="fas fa-comments"></i>
                 <p>

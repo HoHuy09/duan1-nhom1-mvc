@@ -8,9 +8,6 @@ switch ($url) {
         require_once './client/business/homepage.php';
         home();
         break;
-    case 'gioi-thieu':
-        require_once './client/business/homepage.php';
-        about();
     case 'signin':
         require_once './client/business/homepage.php';
         signin();
@@ -47,6 +44,10 @@ switch ($url) {
     case 'cp-admin/san-pham':
         require_once './admin/business/dashboard.php';
         Sanpham();
+        break;
+    case 'cp-admin/hoadon':
+        require_once './admin/business/dashboard.php';
+        Oder();
         break;
     case 'cp-admin/san-pham/add':
         require_once './admin/business/dashboard.php';

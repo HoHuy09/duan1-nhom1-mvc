@@ -21,7 +21,7 @@ function home(){
     client_render('homepage/index.php', compact('products','listSale','luotXem','sanPhamMoi','listSlide','listRecord','thuonghieu'));
 }
 
-function about(){
+function about2(){
     $sql = "SELECT * FROM danh_muc";
     $listRecord = select_page($sql);
     $sql = "SELECT * FROM thuong_hieu";
@@ -73,14 +73,14 @@ function signup(){
             $userInfo = user_login($acc);
             
             if(empty($userInfo)){
-                echo '<script>alert("Tài khoản không tồn tại")</script>';
+                
             }else{
                 if(password_verify($pwd, $userInfo['passwd'])){
                     $_SESSION['user'] = $userInfo;
-                    echo '<script>alert("Đăng nhập thành công")</script>';
+                    
                     header('Location:'.BASE_URL);
                 }else{
-                    echo '<script>alert("Mật khẩu không chính xác")</script>';
+                    header('Location:'.BASE_URL.'signup');
                 }
             }
         }catch(PDOException $e){
@@ -137,13 +137,7 @@ function detail(){
                 $stmt->execute();
                 header("location:" . $_SERVER['HTTP_REFERER']);
             }
-        } else {
-            echo "<script>
-                    alert('Bạn cần đăng nhập để được Bình luận.');
-                    history.back();
-                </script>";
-        
-        }
+        } 
     }
     client_render('homepage/detail.php',compact('products','binhLuan','salesPrdt','product','listRecord','thuonghieu'));
 }
@@ -157,12 +151,10 @@ function tintuc(){
     client_render('homepage/tintuc.php',compact('tintuc','listRecord','thuonghieu'));
 }
 function logout(){
-    var_dump(1);die;
     if(isset($_SESSION['user'])&&isset($_SESSION['user']) != ""){
-        
         unset($_SESSION['user']);
-        header('location: '.BASE_URL);
     }
+    
     client_render('homepage/logout.php');
 }
 function favorite_product(){

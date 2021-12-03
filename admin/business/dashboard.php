@@ -294,5 +294,10 @@ function editslideshow()
     }
     admin_render('dashboard/slideshow/edit.php', compact('field'));
 }
+function Oder(){
+    $sql = 'SELECT * FROM invoices ORDER BY id DESC';
+    $oder = select_page($sql);
+    admin_render('dashboard/hoadon.php',compact('oder'));
+}
 
 

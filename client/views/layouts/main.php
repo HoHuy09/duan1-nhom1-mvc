@@ -154,9 +154,9 @@
                                     <?php endforeach; ?>
                                 </ul>
                             </li>
-                            <li class="header__nav-item">
-                                <a href="<?=BASE_URL."gioi-thieu"?>" class="header__nav-link">Giới Thiệu</a>
-                            </li>
+                            <!-- <li class="header__nav-item">
+                                <a href="<?php BASE_URL."about"?>" class="header__nav-link">Giới Thiệu</a>
+                            </li> -->
                             <li class="header__nav-item">
                                 <a href="<?=BASE_URL."tin-tuc"?>" class="header__nav-link">Tin Tức</a>
                             </li>
