@@ -126,7 +126,18 @@ switch ($url) {
         require_once './client/business/homepage.php';
         add_cart();
         break;
-
+    case 'cp-admin/user/add':
+        require_once './admin/business/dashboard.php';
+        addUser();
+        break;
+    case 'cp-admin/user/edit':
+        require_once './admin/business/dashboard.php';
+        editUser();
+        break;
+    case 'cp-admin/user/delete':
+        require_once './admin/business/dashboard.php';
+        deleteUser();
+        break;
     default:
         # code...
         break;

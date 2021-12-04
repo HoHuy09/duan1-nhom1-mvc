@@ -300,3 +300,73 @@ function add_cart()
 
     admin_render('dashboard/add_cart');
 }
+
+function addUser()
+{
+    $msg = [];
+    if (isset($_POST['btnAdd'])) {
+        $acc = $_POST['acc'];
+        $pwd = $_POST['pwd'];
+        $retype_pwd = $_POST['retype_pwd'];
+        $name = $_POST['name'];
+        $email = $_POST['email'];
+        $file = $_FILES['avatar']['name'];
+        if (empty($acc && $pwd && $retype_pwd && $name && $email && $file)) {
+            $msg[] =  'Bạn còn để trống dữ liệu !';
+        }
+        $temp = $_FILES['file']['tmp_name'];
+        move_uploaded_file($temp, '../../img/' . $file);
+        if ($pwd !== $retype_pwd) {
+            $msg[] = 'Mật khẩu không khớp';
+        }
+        if (empty($msg)) {
+            $pwd = password_hash($pwd, PASSWORD_DEFAULT);
+            $sql = "INSERT INTO user (account, passwd, name, email, avatar) 
+            VALUE ('$acc', '$pwd', '$name', '$email', '$file')";
+            add_user($sql, $acc, $pwd, $name, $email, $file);
+            header('Location: ../frames_func.php?page_layout=user');
+        }
+    }
+    admin_render('dashboard/user.php');
+}
+
+
+function editUser()
+{
+    if (!isset($_GET['id'])) {
+        header('Location: ../frames_func.php?page_layout=category');
+    }
+    $id = intval($_GET['id']);
+    $sql = "SELECT * FROM user WHERE id_user = $id";
+    $recordUser = select_product_detail_follow_id($sql, $id);
+
+    $msg = [];
+    if (isset($_POST['btnAdd'])) {
+        $acc = $_POST['acc'];
+        $pwd = $_POST['pwd'];
+        $name = $_POST['name'];
+        $email = $_POST['email'];
+        $file = $_FILES['avatar']['name'];
+        if ($_FILES['avatar']['name'] != '') {
+            $temp = $_FILES['file']['tmp_name'];
+            $target = move_uploaded_file($temp, '../../img/' . $file);
+        } else {
+            $target = '';
+        }
+        $roles = $_POST['roles'];
+        $pwd = password_hash($pwd, PASSWORD_DEFAULT);
+        edit_user($acc, $pwd, $name, $email, $target, $id, $roles);
+        header('Location: ../frames_func.php?page_layout=user');
+        //}
+    }
+    admin_render('dashboard/user/edit.php');
+}
+
+function deleteUser()
+{
+    $id = intval($_GET['id']);
+    $sql = "SELECT id_user FROM user WHERE id_user = $id";
+    $field = select_product_detail_follow_id($sql, $id);
+    $sql_delete = "DELETE FROM user WHERE id_user = $id";
+    delete($sql_delete, $id);
+}

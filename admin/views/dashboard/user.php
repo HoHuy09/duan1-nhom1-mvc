@@ -15,31 +15,29 @@
                         <th>Email</th>
                         <th>Ảnh Đại Diện</th>
                         <th>Phân Quyền</th>
-                        <th><a href="#" class="btn btn-sm btn-success">Thêm User</a></th>
+                        <th><a href="<?= BASE_URL . 'cp-admin/user/add' ?>" class="btn btn-sm btn-success">Thêm User</a></th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($listUser as $item) : ?>
+                    <?php foreach ($listUser as $user) : ?>
                         <tr>
-                            <td><?= $item['id_user'] ?></td>
-                            <td><?= $item['account'] ?></td>
-                            <td><?= $item['name'] ?></td>
-                            <td><?= $item['email'] ?></td>
-                            <td><img src="<?= PUBLIC_PATH . 'img/' . $item['avatar'] ?>" width="50"></td>
+                            <td><?= $user['id_user'] ?></td>
+                            <td><?= $user['account'] ?></td>
+                            <td><?= $user['name'] ?></td>
+                            <td><?= $user['email'] ?></td>
+                            <td><img src="<?= PUBLIC_PATH . 'img/' . $user['avatar'] ?>" width="50"></td>
                             <td class="td-name">
-                                <?php if ($item['roles'] == 1) {
+                                <?php if ($user['roles'] == 1) {
                                     echo "Admin";
-                                } elseif ($item['roles'] == 0) {
+                                } elseif ($user['roles'] == 0) {
                                     echo "Khách hàng";
-                                } elseif ($item['roles'] == 2) {
+                                } elseif ($user['roles'] == 2) {
                                     echo "Seller";
                                 } ?>
                             </td>
-
                             <td class="td-function">
-                                <a href="#" class="btn btn-sm btn-info">Sửa</a>
-
-                                <a href="#" class="btn btn-sm btn-danger" name="btnDelete">Xóa</a>
+                                <a href="<?= BASE_URL . 'cp-admin/user/edit?id=' . $user['id_user'] ?>" class="btn btn-sm btn-info">Sửa</a>
+                                <a onclick="return del('<?php echo $user['account']; ?>')" href="<?php echo $delete ?>" class="btn btn-sm btn-danger" name="btnDelete">Xóa</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

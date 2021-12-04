@@ -237,3 +237,21 @@ function detail_cmt($sql, $id, $id_sp)
     $stmt->setFetchMode(PDO::FETCH_ASSOC);
     return $stmt->fetchAll();
 }
+function add_user($sql, $acc, $pwd, $name, $email, $file)
+{
+    $conn = get_connect();
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+}
+
+function edit_user($acc, $pwd, $name, $email, $target, $id, $roles)
+{
+    $conn = get_connect();
+    if ($target != '') {
+        $sql = "UPDATE user SET account = '$acc', passwd = '$pwd', name = '$name', email = '$email', avatar = '$target', roles ='$roles' WHERE id_user = '$id'";
+    } else {
+        $sql = "UPDATE user SET account = '$acc', passwd = '$pwd', name = '$name', email = '$email', roles = '$roles' WHERE id_user = '$id'";
+    }
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+}
