@@ -1,8 +1,7 @@
-
 <div class="col-md-12">
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">Hóa Đơn</h3>
+            <h3 class="card-title">Comment</h3>
             <br>
         </div>
         <!-- /.card-header -->
@@ -11,29 +10,21 @@
                 <thead>
                     <tr>
                         <th style="width: 10px">STT</th>
-                        <th>Khách hàng</th>
-                        <th>Số phone</th>
-                        <th>Địa chỉ</th>
-                        <th>Email</th>
-                        <th>Note</th>
-                        <th>Bill</th>
-                        <th>Action</th>
+                        <th>Nội dung</th>
+                        <th>Ngày bình luận</th>
+                        <th>Người bình luận</th>
+                        <th>Chức năng</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($oder as $item) : ?>
+                    <?php foreach ($detailCmt as $cmt) :   ?>
                         <tr>
-                            <td><?= $item['id'] ?></td>
-                            <td><?= $item['customer_name'] ?></td>
-                            <td><?= $item['customer_phone_number'] ?></td>
-                            <td><?= $item['customer_address'] ?></td>
-                            <td><?= $item['customer_email'] ?></td>
-                            <td><?= $item['note'] ?></td>
-                            <td><?= $item['total_price'] ?></td>
-
+                            <td><?= $cmt['id_bl'] ?></td>
+                            <td><?= $cmt['noi_dung'] ?></td>
+                            <td><?= $cmt['thoi_gian'] ?></td>
+                            <td><?= $cmt['name'] ?></td>
                             <td class="td-function">
-                                <a href="*" class="btn btn-sm btn-info">Sửa</a>
-                               
+                                <a onclick="return del('<?php echo $cmt['noi_dung']; ?>')" href="#" class="link-function btn-repair">Xóa</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

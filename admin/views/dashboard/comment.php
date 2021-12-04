@@ -24,7 +24,7 @@
                             <td><?= $cmt['sl'] ?></td>
                             <td><?= $cmt['thoi_gian'] ?></td>
                             <td class="td-function">
-                                <a href="<?= BASE_URL . 'cp-admin/comment/detail' ?>" class="btn btn-sm btn-success">Chi Tiết</a>
+                                <a href="<?= BASE_URL . 'cp-admin/comment/detail/?id_bl='.$cmt['id_bl'].'&id_sp='.$cmt['id_sp'] ?>" >Chi Tiết</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

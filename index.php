@@ -118,11 +118,23 @@ switch ($url) {
         require_once './admin/business/dashboard.php';
         User();
         break;
+    case 'cp-admin/user/add':
+        require_once './admin/business/dashboard.php';
+        adduser();
+        break;
+    case 'cp-admin/user/edit':
+        require_once './admin/business/dashboard.php';
+        edituser();
+        break;
+    case 'cp-admin/user/delete':
+        require_once './admin/business/dashboard.php';
+        deleteuser();
+        break;
     case 'cp-admin/comment':
         require_once './admin/business/dashboard.php';
         Comment();
         break;
-    case 'cp-admin/comment/detail':
+    case 'cp-admin/comment/detail/':
         require_once './admin/business/dashboard.php';
         CommentDetail();
         break;

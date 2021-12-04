@@ -63,19 +63,21 @@ function Comment()
     FROM binh_luan AS bl INNER JOIN san_pham AS sp ON bl.id_sp = sp.id_sp 
     GROUP BY sp.ten_sp ORDER BY bl.id_bl DESC";
     $listCmt = select_all_follow_order($sql);
+    
     admin_render('dashboard/comment.php', compact('listCmt'));
 }
 function CommentDetail()
 {
-    if (!isset($_GET['id_bl']) && !isset($_GET['id_sp'])) {
-        header('Location: ../frames_func.php?page_layout=comment');
+    if (!isset($_GET['id_bl']) && !isset($_GET['id_bl'])) {
+        header('Location: '.BASE_URL.'cp-admin/comment/detail');
     }
+
     $id = intval($_GET['id_bl']);
     $id_sp = intval($_GET['id_sp']);
     $sql = "SELECT u.name, bl.noi_dung, bl.thoi_gian, bl.id_bl, bl.id_sp FROM binh_luan AS bl 
     INNER JOIN user AS u ON bl.id_user = u.id_user WHERE bl.id_bl = '$id' || bl.id_sp = '$id_sp'";
     $detailCmt = detail_cmt($sql, $id, $id_sp);
-    admin_render('dashboard/commentDetail.php');
+    admin_render('dashboard/commentDetail.php',compact('detailCmt'));
 }
 function addsanpham()
 {
@@ -111,9 +113,6 @@ function addsanpham()
 function deletesanpham($id)
 {
     $id = intval($_GET['id']);
-    $sql = "SELECT id_sp FROM san_pham WHERE id_sp = $id";
-    $field = select_product_detail_follow_id($sql, $id);
-
     $sql_delete = "DELETE FROM san_pham WHERE id_sp = $id";
     delete($sql_delete, $id);
     header('Location:' . BASE_URL . 'cp-admin/san-pham');
@@ -276,10 +275,8 @@ function editslideshow()
     if (isset($_REQUEST) && isset($_POST['addCategory'])) {
         $name = $_REQUEST['name'];
         $link = $_REQUEST['duonglink'];
-
-
         $target = $_FILES['file'];
-
+        
         $file = "";
         if ($target['size'] > 0) {
             $file = uniqid() . '-' . $target['name'];
@@ -298,6 +295,72 @@ function Oder(){
     $sql = 'SELECT * FROM invoices ORDER BY id DESC';
     $oder = select_page($sql);
     admin_render('dashboard/hoadon.php',compact('oder'));
+}
+function adduser(){
+    
+    $msg = [];
+    if (isset($_REQUEST)&&isset($_POST['addCategory'])) {
+        $account = $_REQUEST['name'];
+        $name = $_REQUEST['hoten'];
+        $email = $_REQUEST['email'];
+        $password =  password_hash($_REQUEST['password'], PASSWORD_DEFAULT);
+        $role = $_REQUEST['role'];
+        $target = $_FILES['file'];
+       
+
+        $file = "";
+        if ($target['size'] > 0) {
+            $file = uniqid() . '-' . $target['name'];
+            move_uploaded_file($target['tmp_name'], './public/img/' . $file);
+            $file2 =  $file;
+        }
+        if (empty($name)) {
+            $msg[] =  'Bạn còn để trống dữ liệu !';
+        }
+        if (empty($msg)) {
+            $sql = "INSERT INTO user (account, passwd, name, email, avatar, roles) VALUES('$account', '$password', '$name','$email','$file2','$role')";
+            adduser234($sql);
+            header('Location:' . BASE_URL . 'cp-admin/user');
+        }
+    }
+    //
+    admin_render('dashboard/user/add.php');
+}
+function edituser(){
+    $id = intval($_GET['id']);
+    $sql = "SELECT * FROM user WHERE id_user = $id";
+    $user = select_product_detail_follow_id($sql, $id);
+    $msg = [];
+    if (isset($_REQUEST)&&isset($_POST['addCategory'])) {
+        $account = $_REQUEST['name'];
+        $name = $_REQUEST['hoten'];
+        $email = $_REQUEST['email'];
+        $password =  password_hash($_REQUEST['password'], PASSWORD_DEFAULT);
+        $role = $_REQUEST['role'];
+        $target = $_FILES['file'];
+       
+
+        $file = "";
+        if ($target['size'] > 0) {
+            $file = uniqid() . '-' . $target['name'];
+            move_uploaded_file($target['tmp_name'], './public/img/' . $file);
+            $file2 =  $file;
+        }
+        if (empty($name)) {
+            $msg[] =  'Bạn còn để trống dữ liệu !';
+        }
+        if (empty($msg)) {
+            edit_user($account, $password, $name, $email, $file2, $id ,$role);
+            header('Location:' . BASE_URL . 'cp-admin/user');
+        }
+    }
+    admin_render('dashboard/user/edit.php',compact('user'));
+}
+function deleteuser(){
+    $id = intval($_GET['id']);
+    $sql_delete = "DELETE FROM user WHERE id_user = $id";
+    delete($sql_delete, $id);
+    header('Location:' . BASE_URL . 'cp-admin/user');
 }
 
 

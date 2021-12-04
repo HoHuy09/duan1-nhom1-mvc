@@ -187,6 +187,16 @@ function add_category($sql, $name)
         die('Lỗi truy vấn' . $e->getMessage());
     }
 }
+function adduser234($sql)
+{
+    try {
+        $conn = get_connect();
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+    } catch (PDOException $e) {
+        die('Lỗi truy vấn' . $e->getMessage());
+    }
+}
 function select_danh_muc_fllow_id($sql, $id)
 {
     try {
@@ -251,3 +261,15 @@ function insertDataAndGetId($sql){
     $id = $connect->lastInsertId();
     return $id;
 }
+function edit_user($acc, $pwd, $name, $email, $file2, $id ,$roles)
+{
+    $conn = get_connect();
+    if ($file2 != '') {
+        $sql = "UPDATE user SET account = '$acc', passwd = '$pwd', name = '$name', email = '$email', avatar = '$file2', roles ='$roles' WHERE id_user = '$id'";
+    } else {
+        $sql = "UPDATE user SET account = '$acc', passwd = '$pwd', name = '$name', email = '$email', roles = '$roles' WHERE id_user = '$id'";
+    }
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+}
+

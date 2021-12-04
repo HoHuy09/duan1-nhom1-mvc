@@ -15,7 +15,7 @@
                         <th>Email</th>
                         <th>Ảnh Đại Diện</th>
                         <th>Phân Quyền</th>
-                        <th><a href="#" class="btn btn-sm btn-success">Thêm User</a></th>
+                        <th><a href="<?= BASE_URL.'cp-admin/user/add'?>" class="btn btn-sm btn-success">Thêm User</a></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -37,9 +37,9 @@
                             </td>
 
                             <td class="td-function">
-                                <a href="#" class="btn btn-sm btn-info">Sửa</a>
+                                <a href="<?= BASE_URL.'cp-admin/user/edit?id='.$item['id_user'] ?>" class="btn btn-sm btn-info">Sửa</a>
 
-                                <a href="#" class="btn btn-sm btn-danger" name="btnDelete">Xóa</a>
+                                <a href="<?= BASE_URL.'cp-admin/user/delete?id='.$item['id_user'] ?>" class="btn btn-sm btn-danger" name="btnDelete">Xóa</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

@@ -155,7 +155,7 @@ function logout(){
         unset($_SESSION['user']);
     }
     
-    client_render('homepage/logout.php');
+    header('location:' .BASE_URL);
 }
 function favorite_product(){
     $id = $_GET['id'];
