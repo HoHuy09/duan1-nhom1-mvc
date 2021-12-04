@@ -272,4 +272,23 @@ function edit_user($acc, $pwd, $name, $email, $file2, $id ,$roles)
     $stmt = $conn->prepare($sql);
     $stmt->execute();
 }
-
+function delete_3($sql, $id, $id_sp)
+{
+    try {
+        $conn = get_connect();
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+    } catch (PDOException $e) {
+        die('Lỗi truy vấn' . $e->getMessage());
+    }
+}
+function edit_blog($tieude, $tacgia,$date, $ndngan, $nddai, $file2, $id){
+    $conn = get_connect();
+    if ($file2 != '') {
+        $sql = "UPDATE tin_tuc SET tieu_de='$tieude',id_user='$tacgia',ngay_dang_tin='$date',anh='$file2',nd_ngan='$ndngan',nd_dai='$nddai' WHERE ma_tin_tuc = '$id'";
+    } else {
+        $sql = "UPDATE tin_tuc SET tieu_de='$tieude',id_user='$tacgia',ngay_dang_tin='$date',nd_ngan='$ndngan',nd_dai='$nddai' WHERE ma_tin_tuc = '$id'";
+    }
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+}

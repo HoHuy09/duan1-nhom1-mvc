@@ -19,7 +19,7 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Password</label>
-                    <input type="text" name="password" class="form-control" placeholder="Enter Password">
+                    <input type="password" name="password" class="form-control" placeholder="Enter Password">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Quyền</label>

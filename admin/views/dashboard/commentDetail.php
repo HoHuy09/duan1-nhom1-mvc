@@ -24,7 +24,7 @@
                             <td><?= $cmt['thoi_gian'] ?></td>
                             <td><?= $cmt['name'] ?></td>
                             <td class="td-function">
-                                <a onclick="return del('<?php echo $cmt['noi_dung']; ?>')" href="#" class="link-function btn-repair">Xóa</a>
+                                <a href="<?=  BASE_URL.'cp-admin/comment/detail/delete/?id_sp='.$cmt['id_sp'].'&id_bl='.$cmt['id_bl']?>" class="link-function btn-repair">Xóa</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

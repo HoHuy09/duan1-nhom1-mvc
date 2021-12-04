@@ -106,7 +106,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">
+              <a href="<?= BASE_URL . 'cp-admin/blog'?>" class="nav-link">
                 <i class="fa fa-book" aria-hidden="true"></i>
                 <p>
                   Tin tức

@@ -138,6 +138,26 @@ switch ($url) {
         require_once './admin/business/dashboard.php';
         CommentDetail();
         break;
+    case 'cp-admin/comment/detail/delete/':
+        require_once './admin/business/dashboard.php';
+        deletecomment();
+        break;
+    case 'cp-admin/blog':
+        require_once './admin/business/dashboard.php';
+        blog();
+        break;
+    case 'cp-admin/blog/add':
+        require_once './admin/business/dashboard.php';
+        addblog();
+        break;
+    case 'cp-admin/blog/edit':
+        require_once './admin/business/dashboard.php';
+        editblog();
+        break;
+    case 'cp-admin/blog/delete':
+        require_once './admin/business/dashboard.php';
+        deleteblog();
+        break;
     case 'lien-he':
         require_once './client/business/category.php';
         lienhe();
