@@ -11,7 +11,7 @@
                     <img class="object-center object-cover rounded-full h-36 w-36" src="https://vieclam247pro.vn/uploads/tiny_uploads/Giang/it%20m%E1%BB%81m.jpg" alt="photo">
                 </div>
                 <div class="text-center">
-                    <p class="text-xl text-white font-bold mb-2">Hồ Thích Huyw</p>
+                    <p class="text-xl text-white font-bold mb-2">Hồ Thích Huy</p>
                     <p class="text-base text-gray-400 font-normal">Kỹ Sư Phần Mềm</p>
                 </div>
             </div>

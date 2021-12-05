@@ -63,13 +63,13 @@ function Comment()
     FROM binh_luan AS bl INNER JOIN san_pham AS sp ON bl.id_sp = sp.id_sp 
     GROUP BY sp.ten_sp ORDER BY bl.id_bl DESC";
     $listCmt = select_all_follow_order($sql);
-    
+
     admin_render('dashboard/comment.php', compact('listCmt'));
 }
 function CommentDetail()
 {
     if (!isset($_GET['id_bl']) && !isset($_GET['id_bl'])) {
-        header('Location: '.BASE_URL.'cp-admin/comment/detail');
+        header('Location: ' . BASE_URL . 'cp-admin/comment/detail');
     }
 
     $id = intval($_GET['id_bl']);
@@ -77,7 +77,7 @@ function CommentDetail()
     $sql = "SELECT u.name, bl.noi_dung, bl.thoi_gian, bl.id_bl, bl.id_sp FROM binh_luan AS bl 
     INNER JOIN user AS u ON bl.id_user = u.id_user WHERE bl.id_bl = '$id' || bl.id_sp = '$id_sp'";
     $detailCmt = detail_cmt($sql, $id, $id_sp);
-    admin_render('dashboard/commentDetail.php',compact('detailCmt'));
+    admin_render('dashboard/commentDetail.php', compact('detailCmt'));
 }
 function addsanpham()
 {
@@ -276,7 +276,7 @@ function editslideshow()
         $name = $_REQUEST['name'];
         $link = $_REQUEST['duonglink'];
         $target = $_FILES['file'];
-        
+
         $file = "";
         if ($target['size'] > 0) {
             $file = uniqid() . '-' . $target['name'];
@@ -291,22 +291,24 @@ function editslideshow()
     }
     admin_render('dashboard/slideshow/edit.php', compact('field'));
 }
-function Oder(){
+function Oder()
+{
     $sql = 'SELECT * FROM invoices ORDER BY id DESC';
     $oder = select_page($sql);
-    admin_render('dashboard/hoadon.php',compact('oder'));
+    admin_render('dashboard/hoadon.php', compact('oder'));
 }
-function adduser(){
-    
+function adduser()
+{
+
     $msg = [];
-    if (isset($_REQUEST)&&isset($_POST['addCategory'])) {
+    if (isset($_REQUEST) && isset($_POST['addCategory'])) {
         $account = $_REQUEST['name'];
         $name = $_REQUEST['hoten'];
         $email = $_REQUEST['email'];
         $password =  password_hash($_REQUEST['password'], PASSWORD_DEFAULT);
         $role = $_REQUEST['role'];
         $target = $_FILES['file'];
-       
+
 
         $file = "";
         if ($target['size'] > 0) {
@@ -326,19 +328,20 @@ function adduser(){
     //
     admin_render('dashboard/user/add.php');
 }
-function edituser(){
+function edituser()
+{
     $id = intval($_GET['id']);
     $sql = "SELECT * FROM user WHERE id_user = $id";
     $user = select_product_detail_follow_id($sql, $id);
     $msg = [];
-    if (isset($_REQUEST)&&isset($_POST['addCategory'])) {
+    if (isset($_REQUEST) && isset($_POST['addCategory'])) {
         $account = $_REQUEST['name'];
         $name = $_REQUEST['hoten'];
         $email = $_REQUEST['email'];
         $password =  password_hash($_REQUEST['password'], PASSWORD_DEFAULT);
         $role = $_REQUEST['role'];
         $target = $_FILES['file'];
-       
+
 
         $file = "";
         if ($target['size'] > 0) {
@@ -350,44 +353,48 @@ function edituser(){
             $msg[] =  'Bạn còn để trống dữ liệu !';
         }
         if (empty($msg)) {
-            edit_user($account, $password, $name, $email, $file2, $id ,$role);
+            edit_user($account, $password, $name, $email, $file2, $id, $role);
             header('Location:' . BASE_URL . 'cp-admin/user');
         }
     }
-    admin_render('dashboard/user/edit.php',compact('user'));
+    admin_render('dashboard/user/edit.php', compact('user'));
 }
-function deleteuser(){
+function deleteuser()
+{
     $id = intval($_GET['id']);
     $sql_delete = "DELETE FROM user WHERE id_user = $id";
     delete($sql_delete, $id);
     header('Location:' . BASE_URL . 'cp-admin/user');
 }
-function deletecomment(){
+function deletecomment()
+{
     $id_sp = $_GET['id_sp'];
-    
+
     $id = $_GET['id_bl'];
     $sql = "DELETE FROM binh_luan WHERE id_bl = $id && id_sp = $id_sp";
     delete_3($sql, $id, $id_sp);
     header("location:" . $_SERVER['HTTP_REFERER']);
 }
-function blog(){
+function blog()
+{
     $sql = 'SELECT * FROM tin_tuc ORDER BY ma_tin_tuc DESC';
     $listSlide = select_page($sql);
-    admin_render('dashboard/blog.php',compact('listSlide'));
+    admin_render('dashboard/blog.php', compact('listSlide'));
 }
-function addblog(){
+function addblog()
+{
     $sql = 'SELECT * FROM user ORDER BY id_user DESC';
     $listUser = select_thuong_hieu($sql);
     $msg = [];
-    if (isset($_REQUEST)&&isset($_POST['addCategory'])) {
+    if (isset($_REQUEST) && isset($_POST['addCategory'])) {
         $tieude = $_REQUEST['name'];
         $tacgia = $_REQUEST['id_user'];
         $ndngan = $_REQUEST['nd_ngan'];
         $date = date('Y-m-d H:i:s');
         $nddai = $_REQUEST['nd_dai'];
-        
+
         $target = $_FILES['file'];
-       
+
 
         $file = "";
         if ($target['size'] > 0) {
@@ -395,32 +402,33 @@ function addblog(){
             move_uploaded_file($target['tmp_name'], './public/img/' . $file);
             $file2 =  $file;
         }
-       
+
         if (empty($msg)) {
             $sql = "INSERT INTO tin_tuc (tieu_de, id_user, ngay_dang_tin, anh, nd_ngan, nd_dai) VALUES('$tieude', '$tacgia', '$date','$file2','$ndngan','$nddai')";
             adduser234($sql);
             header('Location:' . BASE_URL . 'cp-admin/blog');
         }
     }
-    admin_render('dashboard/blog/add.php',compact('listUser'));
+    admin_render('dashboard/blog/add.php', compact('listUser'));
 }
-function editblog(){
+function editblog()
+{
     $id = $_GET['id'];
     $sql = "SELECT * FROM tin_tuc WHERE ma_tin_tuc = $id";
     $tintuc = select_dmuc($sql);
-    
+
     $sql = 'SELECT * FROM user ORDER BY id_user DESC';
     $listUser = select_thuong_hieu($sql);
     $msg = [];
-    if (isset($_REQUEST)&&isset($_POST['addCategory'])) {
+    if (isset($_REQUEST) && isset($_POST['addCategory'])) {
         $tieude = $_REQUEST['name'];
         $tacgia = $_REQUEST['id_user'];
         $ndngan = $_REQUEST['nd_ngan'];
         $date = date('Y-m-d H:i:s');
         $nddai = $_REQUEST['nd_dai'];
-        
+
         $target = $_FILES['file'];
-       
+
 
         $file = "";
         if ($target['size'] > 0) {
@@ -428,17 +436,18 @@ function editblog(){
             move_uploaded_file($target['tmp_name'], './public/img/' . $file);
             $file2 =  $file;
         }
-       
+
         if (empty($msg)) {
-            edit_blog($tieude, $tacgia,$date, $ndngan, $nddai, $file2, $id );
+            edit_blog($tieude, $tacgia, $date, $ndngan, $nddai, $file2, $id);
             header('Location:' . BASE_URL . 'cp-admin/blog');
         }
     }
-    admin_render('dashboard/blog/edit.php',compact('listUser','tintuc'));
+    admin_render('dashboard/blog/edit.php', compact('listUser', 'tintuc'));
 }
-function deleteblog(){
+function deleteblog()
+{
     $id = $_GET['id'];
     $sql = "DELETE FROM tin_tuc WHERE ma_tin_tuc = $id ";
-    delete($sql,$id);
+    delete($sql, $id);
     header('Location:' . BASE_URL . 'cp-admin/blog');
 }

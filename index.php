@@ -174,6 +174,10 @@ switch ($url) {
         require_once './client/business/homepage.php';
         paycart();
         break;
+    case 'detail-tintuc':
+        require_once './client/business/homepage.php';
+        tintucDetail();
+        break;
     default:
         # code...
         break;
