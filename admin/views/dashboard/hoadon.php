@@ -17,6 +17,7 @@
                         <th>Email</th>
                         <th>Note</th>
                         <th>Bill</th>
+                        <th>Status</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -30,6 +31,14 @@
                             <td><?= $item['customer_email'] ?></td>
                             <td><?= $item['note'] ?></td>
                             <td><?= $item['total_price'] ?></td>
+                            <td>
+                                <?php if($item['status']==0){
+                                    echo 'Đang xử lý';
+                                }else if($item['status']==1){
+                                    echo 'Đang Ship';
+                                }else{
+                                    echo 'Đã thanh toán';
+                                }?></td>
 
                             <td class="td-function">
                                 <a href="*" class="btn btn-sm btn-info">Sửa</a>

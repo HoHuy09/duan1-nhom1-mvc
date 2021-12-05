@@ -28,7 +28,7 @@
                             <a href="tintuc_detail.php/id=<?= $item['ma_tin_tuc'] ?>" class="stretched-link">Xem chi tiết</a>
                         </div>
                         <div class="col-auto d-none d-lg-block">
-                            <img class="bd-placeholder-img" src="<?= $item['anh'] ?>" width="200" height="250">
+                            <img class="bd-placeholder-img" src="<?= PUBLIC_PATH.'img/'. $item['anh'] ?>" width="200" height="250">
 
 
                             </img>

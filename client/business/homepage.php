@@ -220,6 +220,7 @@ function checkout(){
     client_render('homepage/checkout.php', compact('cart','listRecord','thuonghieu'));
     }
 function paycart(){
+    $status = 0;
     $name = $_POST['name'];
     $phone = $_POST['phone'];
     $email = $_POST['email'];
@@ -228,9 +229,9 @@ function paycart(){
     // insert dữ liệu để tạo hóa đơn mới, sau đó lấy id của hóa đơn
     $createInvoiceQuery = "insert into invoices 
                                 (customer_name, customer_phone_number, customer_email, 
-                                    customer_address, note)
+                                    customer_address, note,status)
                             values
-                                ('$name', '$phone', '$email', '$address', '$note')";
+                                ('$name', '$phone', '$email', '$address', '$note','$status')";
     $invoiceId = insertDataAndGetId($createInvoiceQuery);
     $totalPrice = 0;
     // chạy vòng lặp qua các phần tử của giỏ hàng, sau đó insert dữ liệu vào bảng invoice_detail
