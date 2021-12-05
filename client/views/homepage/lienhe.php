@@ -1,93 +1,89 @@
-
-<body>
-    <div class="container" style="margin: 40px;">
-        <div class="sendform">
-            <form name="form" method="post" action="send_form.php" style="margin-left: 215px;">
-                <table>
-                    <h2 style="margin-left: -10px;">LIÊN HỆ</h2>
-                    <br>
-                    <tr>
-                        <td valign="top" style="padding-bottom: 22px;">
-                            <label for="name">Họ và tên</label>
-                        </td>
-                        <td valign="top" style="padding-left: 20px;">
-                            <input type="text" name="name" maxlength="50" size="30">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td valign="top" style="padding-bottom: 22px;">
-                            <label for="email">Email</label>
-                        </td>
-                        <td valign="top" style="padding-left: 20px;">
-                            <input type="text" name="email" maxlength="80" size="30">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td valign="top" style="padding-bottom: 22px;">
-                            <label for="telephone">Số điện thoại</label>
-                        </td>
-                        <td valign="top" style="padding-left: 20px;">
-                            <input type="text" name="telephone" maxlength="30" size="30">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td valign="top" style="padding-bottom: 22px;">
-                            <label for="comments">Nội dung</label>
-                        </td>
-                        <td valign="top" style="padding-left: 20px;">
-                            <textarea name="comments" maxlength="1000" cols="29" rows="10"></textarea>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" style="text-align:center">
-                            <input type="submit" value="Submit" style="margin-left: 70px; margin-top: 15px;">
-                        </td>
-                    </tr>
-                </table>
-            </form>
+<div class="w-full bg-White-800">
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 py-12">
+        <div class="text-center pb-12">
+            <h1 class="font-bold text-3xl md:text-4xl lg:text-5xl font-heading text-white">
+                Nhân Viên Tư Vấn
+            </h1>
         </div>
-        <div class="bt" style="float: right; margin-top: -354px; margin-right:155px;">
-            <h2 style="margin-left: 106px;">LIÊN HỆ THÀNH VIÊN</h2>
-            <br>
-            <div class="tv">
-                <div class="tv1">
-                    <img src="<?=PUBLIC_PATH.'/img/adminpicture.jpg'?>" width="55px" alt="">
-                    <h3 style="margin: 55px; margin-top: -50px;">Hồ Thích Huy</h3>
-                    <h4 style="font-style: italic; font-size: initial; margin-top: -50px;margin-left: 65px;">
-                        Liên hệ : 0965422573
-                    </h4>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="w-full bg-gray-900 rounded-lg sahdow-lg p-12 flex flex-col justify-center items-center">
+                <div class="mb-8">
+                    <img class="object-center object-cover rounded-full h-36 w-36" src="https://vieclam247pro.vn/uploads/tiny_uploads/Giang/it%20m%E1%BB%81m.jpg" alt="photo">
                 </div>
-                <div class="tv1" style="margin-top: 20px;">
-                    <img src="public/img/z2987722913364_c90c66b450c1d9c9ccc1242f510409d4.jpg" width="55px" alt="">
-                    <h3 style="margin: 55px; margin-top: -50px;">Lê Ngọc Quỳnh</h3>
-                    <h4 style="font-style: italic; font-size: initial; margin-top: -50px;margin-left: 65px;">
-                        Liên hệ : 0866193026
-                    </h4>
-                </div>
-                <div class="cow" style="margin-left: 295px; margin-top:-190px;">
-                    <div class="tv1">
-                        <img src="public/img/z2987727066217_a81b9bee9c54b30e38d7aabcd3a91f82.jpg" width="55px" alt="">
-                        <h3 style="margin: 55px; margin-top: -50px;">Trịnh Văn Tú</h3>
-                        <h4 style="font-style: italic; font-size: initial; margin-top: -50px;margin-left: 65px;">
-                            Liên hệ : 0398341826
-                        </h4>
-                    </div>
-                    <div class="tv1" style="margin-top: 20px;">
-                        <img src="public/img/z2987730335607_885e31beaf5bd89aea6d710e9e2ccf17.jpg" width="55px" alt="">
-                        <h3 style="margin: 55px; margin-top: -50px;">Đỗ Thành Đạt</h3>
-                        <h4 style="font-style: italic; font-size: initial; margin-top: -50px;margin-left: 65px;">
-                            Liên hệ : 0901741503
-                        </h4>
-                    </div>
+                <div class="text-center">
+                    <p class="text-xl text-white font-bold mb-2">Hồ Thích Huyw</p>
+                    <p class="text-base text-gray-400 font-normal">Kỹ Sư Phần Mềm</p>
                 </div>
             </div>
+            <div class="w-full bg-gray-900 rounded-lg sahdow-lg p-12 flex flex-col justify-center items-center">
+                <div class="mb-8">
+                    <img class="object-center object-cover rounded-full h-36 w-36" src="https://cdn.nguyenkimmall.com/images/detailed/555/may-anh-cho-nguoi-moi.jpg" alt="photo">
+                </div>
+                <div class="text-center">
+                    <p class="text-xl text-white font-bold mb-2">Lê Ngọc Quỳnh</p>
+                    <p class="text-base text-gray-400 font-normal">Người Thiết Kế Đồ Họa</p>
+                </div>
+            </div>
+            <div class="w-full bg-gray-900 rounded-lg sahdow-lg p-12 flex flex-col justify-center items-center">
+                <div class="mb-8">
+                    <img class="object-center object-cover rounded-full h-36 w-36" src="https://lasun.vn/wp-content/uploads/2018/11/con-nguoi-co-vai-tro-het-suc-quan-trong-600x300.jpg" alt="photo">
+                </div>
+                <div class="text-center">
+                    <p class="text-xl text-white font-bold mb-2">Trịnh Văn Tú</p>
+                    <p class="text-base text-gray-400 font-normal">Hoạt Động Phát Triển</p>
+                </div>
+            </div>
+            <div class="w-full bg-gray-900 rounded-lg sahdow-lg p-12 flex flex-col justify-center items-center">
+                <div class="mb-8">
+                    <img class="object-center object-cover rounded-full h-36 w-36" src="https://h2tsolution.vn/wp-content/uploads/image0034-1200x800.jpg" alt="photo">
+                </div>
+                <div class="text-center">
+                    <p class="text-xl text-white font-bold mb-2">Nguyễn Thành Đạt</p>
+                    <p class="text-base text-gray-400 font-normal">Chuyên Viên Marketings</p>
+                </div>
+            </div>
+
+
         </div>
-        <div class="map" style="margin-top: 58px; margin-left: 360px;">
-            <h2>ĐỊA CHỈ LIÊN HỆ</h2>
-            <br>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14895.34562942068!2d105.75973527449757!3d21.03923077764466!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313454b991d80fd5%3A0x53cefc99d6b0bf6f!2zVHLGsOG7nW5nIENhbyDEkeG6s25nIEZQVCBQb2x5dGVjaG5pYw!5e0!3m2!1svi!2s!4v1637934012679!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </section>
+</div>
+
+
+<div class="w-full bg-White-800 h-screen">
+    <div class="bg-gradient-to-b from-White-800 to-blue-600 h-96"></div>
+    <div class="max-w-5xl mx-auto px-6 sm:px-6 lg:px-8 mb-12">
+        <div class="bg-gray-900 w-full shadow rounded p-8 sm:p-12 -mt-72">
+            <p class="text-3xl font-bold leading-7 text-center text-white">Liên Hệ Với Chúng Tôi</p>
+            <form action="" method="post">
+                <div class="md:flex items-center mt-12">
+                    <div class="w-full md:w-1/2 flex flex-col">
+                        <label class="font-semibold leading-none text-gray-300">Name</label>
+                        <input type="text" class="leading-none text-gray-50 p-3 focus:outline-none focus:border-blue-700 mt-4 border-0 bg-gray-800 rounded" />
+                    </div>
+                    <div class="w-full md:w-1/2 flex flex-col md:ml-6 md:mt-0 mt-4">
+                        <label class="font-semibold leading-none text-gray-300">Phone</label>
+                        <input type="email" class="leading-none text-gray-50 p-3 focus:outline-none focus:border-blue-700 mt-4 border-0 bg-gray-800 rounded" />
+                    </div>
+                </div>
+                <div class="md:flex items-center mt-8">
+                    <div class="w-full flex flex-col">
+                        <label class="font-semibold leading-none text-gray-300">Subject</label>
+                        <input type="text" class="leading-none text-gray-50 p-3 focus:outline-none focus:border-blue-700 mt-4 border-0 bg-gray-800 rounded" />
+                    </div>
+
+                </div>
+                <div>
+                    <div class="w-full flex flex-col mt-8">
+                        <label class="font-semibold leading-none text-gray-300">Message</label>
+                        <textarea type="text" class="h-40 text-base leading-none text-gray-50 p-3 focus:outline-none focus:border-blue-700 mt-4 bg-gray-800 border-0 rounded"></textarea>
+                    </div>
+                </div>
+                <div class="flex items-center justify-center w-full">
+                    <button class="mt-9 font-semibold leading-none text-white py-4 px-10 bg-blue-700 rounded hover:bg-blue-600 focus:ring-2 focus:ring-offset-2 focus:ring-blue-700 focus:outline-none">
+                        Send message
+                    </button>
+                </div>
+            </form>
         </div>
     </div>
-</body>
-
-
+</div>
