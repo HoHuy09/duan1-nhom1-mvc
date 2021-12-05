@@ -2,7 +2,7 @@
 <div class="col-md-12">
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">Hóa Đơn</h3>
+            <h3 class="card-title">Hóa Đơn Chi Tiết</h3>
             <br>
         </div>
         <!-- /.card-header -->
@@ -41,8 +41,8 @@
                                 }?></td>
 
                             <td class="td-function">
-                                <a href="<?= BASE_URL.'cp-admin/hoadon/detail/?id='. $item['id'] ?>" class="btn btn-sm btn-info">Chi tiết</a>
-                                <a href="<?= BASE_URL.'cp-admin/hoadon/edit/?id='. $item['id'] ?>" class="btn btn-sm btn-info">Sửa</a>
+                                <a href="<?= BASE_URL.'cp-admin/hoadon/detail?id='. $item['id'] ?>" class="btn btn-sm btn-info">Chi tiết</a>
+                               
                             </td>
                         </tr>
                     <?php endforeach; ?>

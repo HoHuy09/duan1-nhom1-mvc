@@ -246,6 +246,7 @@ function edit_slide($name, $file, $link, $id)
     }
 }
 
+
 function detail_cmt($sql, $id, $id_sp)
 {
     $conn = get_connect();
@@ -289,6 +290,13 @@ function edit_blog($tieude, $tacgia,$date, $ndngan, $nddai, $file2, $id){
     } else {
         $sql = "UPDATE tin_tuc SET tieu_de='$tieude',id_user='$tacgia',ngay_dang_tin='$date',nd_ngan='$ndngan',nd_dai='$nddai' WHERE ma_tin_tuc = '$id'";
     }
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+}
+function edit_bill( $khachhang, $sdt, $diachi, $email, $note,$bill,$status,$id){
+    $conn = get_connect();
+    $sql = "UPDATE invoices SET customer_name = '$khachhang', customer_phone_number = '$sdt', customer_address = '$diachi',
+    customer_email = '$email',note = '$note',total_price = '$bill',status = '$status' WHERE id = '$id'";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
 }

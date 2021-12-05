@@ -442,3 +442,33 @@ function deleteblog(){
     delete($sql,$id);
     header('Location:' . BASE_URL . 'cp-admin/blog');
 }
+function OderDetail(){
+    $id = $_GET['id'];
+    $sql = "SELECT * FROM invoice_detail INNER JOIN san_pham ON san_pham.id_sp = invoice_detail.id_sp WHERE id = $id ";
+    
+   
+    
+    admin_render('dashboard/hoadon/detail.php');
+}
+function OderEdit(){
+    
+    $id = $_GET['id']; 
+    $sql = "SELECT customer_name, customer_phone_number, customer_email, customer_address, note, total_price, status FROM invoices WHERE id=$id";
+    $list = select_dmuc($sql);
+    
+    if (isset($_REQUEST)&&isset($_REQUEST['addCategory'])) {
+        $khachhang = $_REQUEST['name'];
+        $sdt = $_REQUEST['phone'];
+        $diachi = $_REQUEST['address'];
+        $email = $_REQUEST['email'];
+        $note = $_REQUEST['note'];
+        $bill = $_REQUEST['bill'];
+        $status = $_REQUEST['status'];
+        if (empty($msg)) {
+           
+            edit_bill( $khachhang, $sdt, $diachi, $email, $note,$bill,$status,$id);
+            header('location : '.BASE_URL.'cp-admin/hoadon');
+        }
+    }
+    admin_render('dashboard/hoadon/edit.php' ,compact('list'));
+}

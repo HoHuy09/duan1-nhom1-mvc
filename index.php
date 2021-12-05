@@ -49,6 +49,14 @@ switch ($url) {
         require_once './admin/business/dashboard.php';
         Oder();
         break;
+    case 'cp-admin/hoadon/detail/':
+        require_once './admin/business/dashboard.php';
+        OderDetail();
+        break;
+    case 'cp-admin/hoadon/edit/':
+        require_once './admin/business/dashboard.php';
+        OderEdit();
+        break;
     case 'cp-admin/san-pham/add':
         require_once './admin/business/dashboard.php';
         addsanpham();
