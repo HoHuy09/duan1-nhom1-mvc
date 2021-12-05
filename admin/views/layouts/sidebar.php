@@ -113,6 +113,14 @@
                 </p>
               </a>
             </li>
+            <li class="nav-item">
+              <a href="<?= BASE_URL . 'logout'?>" class="nav-link">
+              <i class="fas fa-sign-out-alt"></i>
+                <p>
+                  Đăng xuất
+                </p>
+              </a>
+            </li>
 
             <!-- /.sidebar-menu -->
   </div>
