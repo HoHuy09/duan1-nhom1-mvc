@@ -465,9 +465,8 @@ function OderEdit(){
         $bill = $_REQUEST['bill'];
         $status = $_REQUEST['status'];
         if (empty($msg)) {
-           
             edit_bill( $khachhang, $sdt, $diachi, $email, $note,$bill,$status,$id);
-            header('location : '.BASE_URL.'cp-admin/hoadon');
+            header('Location:' . BASE_URL . 'cp-admin/hoadon');
         }
     }
     admin_render('dashboard/hoadon/edit.php' ,compact('list'));
