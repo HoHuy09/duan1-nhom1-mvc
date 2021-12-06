@@ -75,7 +75,7 @@
         <div class="row col">
             <?php
             foreach ($luotXem as $row) : ?>
-                <section class="l-2 col content__product-general">
+                <section class="l-3 col content__product-general">
                     <div class="content__product-sale">
                         <a href="<?= BASE_URL.'chi-tiet/?id='.$row['id_sp'] ?>" class="content__product-sale-link row__general-product">
                             <div class="content__product-sale-box">
@@ -99,7 +99,7 @@
         <div class="row col">
             <?php
             foreach ($sanPhamMoi as $row) : ?>
-                <section class="l-2 col content__product-general">
+                <section class="l-3 col content__product-general">
                     <div class="content__product-sale">
                         <a href=" <?= BASE_URL.'chi-tiet/?id='.$row['id_sp'] ?> " class="content__product-sale-link row__general-product">
                             <div class="content__product-sale-box">
