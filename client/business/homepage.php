@@ -259,3 +259,16 @@ function paycart(){
     die;
     
 }
+function yeuthich(){
+    $acc = $_SESSION['user']['account'];
+    $sql = "SELECT * FROM favorite_products,user,san_pham WHERE favorite_products.product_id = san_pham.id_sp and user.id_user  = favorite_products.user_id and user.account =  '$acc'";
+    $yeuthich = select_page($sql);
+    
+    client_render('homepage/yeuthich.php',compact('yeuthich'));
+}
+function deleteyeuthich(){
+    $id = $_GET['id'];
+    $sql = "DELETE FROM favorite_products WHERE id = $id";
+    delete($sql, $id);
+    header("location: ".BASE_URL."yeuthich");
+}

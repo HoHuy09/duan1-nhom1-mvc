@@ -182,6 +182,14 @@ switch ($url) {
         require_once './client/business/homepage.php';
         paycart();
         break;
+    case 'yeuthich':
+        require_once './client/business/homepage.php';
+        yeuthich();
+        break;
+    case 'yeuthich/delete':
+        require_once './client/business/homepage.php';
+        deleteyeuthich();
+        break;
     default:
         # code...
         break;
