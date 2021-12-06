@@ -268,7 +268,7 @@ function yeuthich(){
 }
 function deleteyeuthich(){
     $id = $_GET['id'];
-    $sql = "DELETE FROM favorite_products WHERE id = $id";
+    $sql = "DELETE FROM favorite_products WHERE id = $id limit 5";
     delete($sql, $id);
     header("location: ".BASE_URL."yeuthich");
 }
