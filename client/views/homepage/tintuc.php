@@ -11,14 +11,14 @@
                             <div>
                                 <img class="w-full" src="<?= PUBLIC_PATH . 'img/' . $item['anh'] ?>" />
                                 <div class="px-4 py-2">
-                                    <h1 class="text-xl font-gray-700 font-bold"><?= $item['tieu_de'] ?></h1>
+                                    <h1 class="text-2xl font-gray-700 font-bold"><?= $item['tieu_de'] ?></h1>
                                     <div class="flex space-x-2 mt-2">
 
-                                        <h3 class="text-lg text-gray-600 font-semibold mb-2"><?= $item['ngay_dang_tin'] ?></h3>
+                                        <h3 class="text-xl text-gray-600 font-semibold mb-2"><?= $item['ngay_dang_tin'] ?></h3>
                                     </div>
-                                    <p class="text-sm tracking-normal"><?= $item['nd_ngan'] ?></p>
-                                    <button class="mt-12 w-full text-center bg-yellow-400 py-2 rounded-lg">Read more</button>
+                                    <p class="text-xl tracking-normal"><?= $item['nd_ngan'] ?></p>
 
+                                    <button class="mt-12 text-2xl w-full text-center bg-yellow-400 py-2 rounded-lg  "> <a href="<?= BASE_URL . 'chi-tiet-tin-tuc/?id=' . $item['ma_tin_tuc'] ?>">Xem Thêm</a> </button>
                                 </div>
                             </div>
                         </div>
