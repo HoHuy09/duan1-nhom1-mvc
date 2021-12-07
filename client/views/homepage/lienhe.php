@@ -8,16 +8,16 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div class="w-full bg-gray-900 rounded-lg sahdow-lg p-12 flex flex-col justify-center items-center">
                 <div class="mb-8">
-                    <img class="object-center object-cover rounded-full h-36 w-36" src="https://vieclam247pro.vn/uploads/tiny_uploads/Giang/it%20m%E1%BB%81m.jpg" alt="photo">
+                    <img class="object-center object-cover rounded-full h-36 w-36" src="<?= PUBLIC_PATH.'img/'.'adminpicture.jpg'?>" alt="photo">
                 </div>
                 <div class="text-center">
-                    <p class="text-xl text-white font-bold mb-2">Hồ Thích Huyw</p>
+                    <p class="text-xl text-white font-bold mb-2">Hồ Thích Huy</p>
                     <p class="text-base text-gray-400 font-normal">Kỹ Sư Phần Mềm</p>
                 </div>
             </div>
             <div class="w-full bg-gray-900 rounded-lg sahdow-lg p-12 flex flex-col justify-center items-center">
                 <div class="mb-8">
-                    <img class="object-center object-cover rounded-full h-36 w-36" src="https://cdn.nguyenkimmall.com/images/detailed/555/may-anh-cho-nguoi-moi.jpg" alt="photo">
+                    <img class="object-center object-cover rounded-full h-36 w-36" src="<?= PUBLIC_PATH.'img/'.'z2987722913364_c90c66b450c1d9c9ccc1242f510409d4.jpg'?>" alt="photo">
                 </div>
                 <div class="text-center">
                     <p class="text-xl text-white font-bold mb-2">Lê Ngọc Quỳnh</p>
@@ -26,7 +26,7 @@
             </div>
             <div class="w-full bg-gray-900 rounded-lg sahdow-lg p-12 flex flex-col justify-center items-center">
                 <div class="mb-8">
-                    <img class="object-center object-cover rounded-full h-36 w-36" src="https://lasun.vn/wp-content/uploads/2018/11/con-nguoi-co-vai-tro-het-suc-quan-trong-600x300.jpg" alt="photo">
+                    <img class="object-center object-cover rounded-full h-36 w-36" src="<?= PUBLIC_PATH.'img/'.'z2987727066217_a81b9bee9c54b30e38d7aabcd3a91f82.jpg'?>" alt="photo">
                 </div>
                 <div class="text-center">
                     <p class="text-xl text-white font-bold mb-2">Trịnh Văn Tú</p>
@@ -35,10 +35,10 @@
             </div>
             <div class="w-full bg-gray-900 rounded-lg sahdow-lg p-12 flex flex-col justify-center items-center">
                 <div class="mb-8">
-                    <img class="object-center object-cover rounded-full h-36 w-36" src="https://h2tsolution.vn/wp-content/uploads/image0034-1200x800.jpg" alt="photo">
+                    <img class="object-center object-cover rounded-full h-36 w-36" src="<?= PUBLIC_PATH.'img/'.'z2987730335607_885e31beaf5bd89aea6d710e9e2ccf17.jpg'?>" alt="photo">
                 </div>
                 <div class="text-center">
-                    <p class="text-xl text-white font-bold mb-2">Nguyễn Thành Đạt</p>
+                    <p class="text-xl text-white font-bold mb-2">Đỗ Thành Đạt</p>
                     <p class="text-base text-gray-400 font-normal">Chuyên Viên Marketings</p>
                 </div>
             </div>
