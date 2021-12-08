@@ -245,6 +245,12 @@ function edit_slide($name, $file, $link, $id)
         die('Lỗi truy vấn' . $e->getMessage());
     }
 }
+function edit_billdetail($id,$quantity){
+    $conn = get_connect();
+    $sql = "UPDATE invoice_detail SET quantity = '$quantity' WHERE id = '$id'";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+}
 
 
 function detail_cmt($sql, $id, $id_sp)

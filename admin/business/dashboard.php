@@ -292,8 +292,10 @@ function editslideshow()
     admin_render('dashboard/slideshow/edit.php', compact('field'));
 }
 function Oder(){
-    $sql = 'SELECT * FROM invoices ORDER BY id DESC';
+    $sql = "SELECT * FROM invoices ";
+    
     $oder = select_page($sql);
+    
     admin_render('dashboard/hoadon.php',compact('oder'));
 }
 function adduser(){
@@ -444,11 +446,14 @@ function deleteblog(){
 }
 function OderDetail(){
     $id = $_GET['id'];
-    $sql = "SELECT * FROM invoice_detail INNER JOIN san_pham ON san_pham.id_sp = invoice_detail.id_sp WHERE id = $id ";
-    
+    $sql = "SELECT * FROM invoice_detail id 
+    JOIN san_pham sp 
+    ON id.product_id = sp.id_sp 
+    WHERE id.invoice_id = $id";
+    $oder = select_page($sql);
    
     
-    admin_render('dashboard/hoadon/detail.php');
+    admin_render('dashboard/hoadon/detail.php',compact('oder','id'));
 }
 function OderEdit(){
     
@@ -470,4 +475,34 @@ function OderEdit(){
         }
     }
     admin_render('dashboard/hoadon/edit.php' ,compact('list'));
+}
+function editoderdetail(){
+    $id_oder = $_GET['id_oder'];
+    $id = $_GET['id'];
+    $sql = "SELECT * FROM invoice_detail WHERE id = $id";
+    $list = select_dmuc($sql);
+    if (isset($_REQUEST)&&isset($_REQUEST['addCategory'])) {
+        $quantity = $_REQUEST['quantity'];
+        
+        if (empty($msg)) {
+            edit_billdetail($id,$quantity);
+            header("location:" . BASE_URL . 'cp-admin/hoadon/detail/?id='.$id_oder);
+        }
+    }
+    $sql = "SELECT * FROM invoices id 
+    JOIN invoice_detail sp 
+    ON id.id = sp.invoice_id 
+    WHERE sp.invoice_id = $id_oder";
+    $oder = select_page($sql);
+    
+    $totalPrice=0;
+    foreach ($oder as $item) {
+        $totalPrice += $item['unit_price'] * $item['quantity'];
+        
+    }
+    $updateTotalPriceToInvoice = "update invoices
+                                    set total_price = $totalPrice
+                                where id = $id_oder";
+    executeQuery($updateTotalPriceToInvoice, false);
+    admin_render('dashboard/hoadon/editdetail.php' ,compact('list'));
 }

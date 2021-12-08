@@ -53,6 +53,10 @@ switch ($url) {
         require_once './admin/business/dashboard.php';
         OderDetail();
         break;
+    case 'cp-admin/hoadon/detail/edit':
+        require_once './admin/business/dashboard.php';
+        editoderdetail();
+        break;
     case 'cp-admin/hoadon/edit/':
         require_once './admin/business/dashboard.php';
         OderEdit();
