@@ -190,6 +190,11 @@ switch ($url) {
         require_once './client/business/homepage.php';
         deleteyeuthich();
         break;
+
+    case 'chi-tiet-tin-tuc/':
+        require_once './client/business/homepage.php';
+        detailTintuc();
+        break;
     default:
         # code...
         break;
